@@ -3,6 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FCore.Interactions", "FCore.Interactions", "{AF603F94-5C05-4A6C-B9BF-CD5C9F8A61B1}"
+	ProjectSection(SolutionItems) = preProject
+		abstract-level-coding.md = abstract-level-coding.md
+		api-guidelines.md = api-guidelines.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{4B5E87A2-C2EF-4946-8393-B6A7C47D7227}"
+	ProjectSection(SolutionItems) = preProject
+		publishing-csharp-project.md = publishing-csharp-project.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
