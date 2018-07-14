@@ -14,6 +14,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{4B5E87A2
 		publishing-csharp-project.md = publishing-csharp-project.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{EDCD01F6-E0C6-4A3C-B3DA-6C5042B4BF7F}"
+	ProjectSection(SolutionItems) = preProject
+		untrack-previously-tracked.md = untrack-previously-tracked.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Testing", "Unit Testing", "{9326A72F-049C-402A-A1C4-7F10B52A79E3}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
