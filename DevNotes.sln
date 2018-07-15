@@ -21,9 +21,34 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{EDCD01F6-E0C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Testing", "Unit Testing", "{9326A72F-049C-402A-A1C4-7F10B52A79E3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VS Templating", "VS Templating", "{66EC89CB-95C3-419F-8048-9BA3AC4C3C1B}"
+	ProjectSection(SolutionItems) = preProject
+		vs-templating-primer.md = vs-templating-primer.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular Schematics", "Angular Schematics", "{FD0D6E9D-488D-4648-8ABA-40455FAB7A3C}"
+	ProjectSection(SolutionItems) = preProject
+		schematics-primer.md = schematics-primer.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unit-testing-primer", "unit-testing-primer\unit-testing-primer.csproj", "{1C45E582-D47D-47FB-ACF7-E327322CFB76}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1C45E582-D47D-47FB-ACF7-E327322CFB76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C45E582-D47D-47FB-ACF7-E327322CFB76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C45E582-D47D-47FB-ACF7-E327322CFB76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C45E582-D47D-47FB-ACF7-E327322CFB76}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C45E582-D47D-47FB-ACF7-E327322CFB76} = {9326A72F-049C-402A-A1C4-7F10B52A79E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
