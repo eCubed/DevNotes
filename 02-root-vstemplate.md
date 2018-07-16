@@ -74,13 +74,68 @@ in the `New Project` dialog window when we start creating a new solution. We wil
 
 `<CreateInPlace>` means (if the value is `true`) create all the project folders in their respective places relative
 to the solution's root. For some odd reason, the default value of this node is false, and is NOT mentioned in the
-official documentation. For all purposes, we want the value to be `true` or else, our projects will not be created.
-We found this answer in several Github issue conversations. Yes, we have to explicitly have `<CreateInPlace>true</CreateInPlace>`
-in this file, and later, throughout our entire solution.
+official documentation (also not included in many VS templating tutorials' `Root.vstemplate` files). For all purposes,
+we want the value to be `true` or else, our projects and their contents will not be created. We found this answer in several Github issue conversations. Yes,
+we have to explicitly have `<CreateInPlace>true</CreateInPlace>` in this file, and later, throughout our entire 
+solution.
 
 `<DefaultName>` is the default project name that would be automatically filled in the textbox that we would actually
 type in our project name.
 
 The other settings aren't relevant to our needs but need to be present.
+
+## The ProjectCollection Node
+
+We will now declare which projects we want in our solution. We declare them in the `<ProjectCollection>` node of
+`<TemplateContent>`. We need to focus on a few particular declarations.
+
+```xml
+<TemplateContent>    
+  <ProjectCollection>
+    <ProjectTemplateLink ProjectName="$projectname$" CopyParameters="true">
+      BusinessLogicLibraryTemplate\MyTemplate.vstemplate
+    </ProjectTemplateLink>
+    <ProjectTemplateLink ProjectName="$projectname$.EntityFramework" CopyParameters="true">
+      EntityFrameworkImplementation\MyTemplate.vstemplate
+    </ProjectTemplateLink>
+    <ProjectTemplateLink ProjectName="$projectname$.AuthServer"  CopyParameters="true">
+      AuthServer\MyTemplate.vstemplate
+    </ProjectTemplateLink>      
+    <ProjectTemplateLink ProjectName="$projectname$.ResourceServer"  CopyParameters="true">
+      ResourceServer\MyTemplate.vstemplate
+    </ProjectTemplateLink>      
+    <ProjectTemplateLink ProjectName="$projectname$.FileServer"  CopyParameters="true">
+      FileServer\MyTemplate.vstemplate
+    </ProjectTemplateLink>      
+    <ProjectTemplateLink ProjectName="$projectname$.DevDeploy"  CopyParameters="true">
+      DevDeploy\MyTemplate.vstemplate
+    </ProjectTemplateLink>
+    <ProjectTemplateLink ProjectName="$projectname$.ProdDeploy"  CopyParameters="true">
+      ProdDeploy\MyTemplate.vstemplate
+    </ProjectTemplateLink>
+  </ProjectCollection>   
+</TemplateContent>
+```
+
+At first glance, we can see that each `<ProjectTemplateLink>` corresponds to an actual project that will
+be created in our code generation. It is called "project template link" because it is a reference to a project
+template which we'll create later.
+
+The `ProjectName` attribute describes what a project's name is - the eventual name of the `.csproj` file
+as well as the name of the project folder that will contain a project.
+
+Take note of `$projectname$`. Anything that starts and ends with `$` is a placeholder. The text in between
+denotes a variable that VS recognizes. In particular, `projectname` is the name of the solution as the developer
+specifies when they will scaffold a new solution out of our solution template.
+
+The `CopyParameters` attribute with the value set to `true` means that `$projectname$` and other VS-recognized
+variables will be passed along to individual project templates. This is another attribute that isn't very well-documented
+and actually strangely defaults to false, which is practically never what we want. We will always want `$projectname$`
+to be passed all the way down to each .cs file.
+
+The value inside the `<ProjectTemplateLink>` tag is the exact relative path (relative to solution root) to a project 
+template's own `.vstemplate` file. There indeed is going to be a mapping from a project template's root folder
+to an actual project folder that will be generated.
+
 
 
