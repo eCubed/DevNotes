@@ -118,7 +118,7 @@ We will now declare which projects we want in our solution. We declare them in t
 ```
 
 At first glance, we can see that each `<ProjectTemplateLink>` corresponds to an actual project that will
-be created in our code generation. It is called "project template link" because it is a reference to a project
+be created by our code generation. It is called "project template link" because it is a reference to a project
 template which we'll create later.
 
 The `ProjectName` attribute describes what a project's name is - the eventual name of the `.csproj` file
@@ -131,7 +131,7 @@ specifies when they will scaffold a new solution out of our solution template.
 The `CopyParameters` attribute with the value set to `true` means that `$projectname$` and other VS-recognized
 variables will be passed along to individual project templates. This is another attribute that isn't very well-documented
 and actually strangely defaults to false, which is practically never what we want. We will always want `$projectname$`
-to be passed all the way down to each .cs file.
+to be passed all the way down to each .cs file, so we will need to set `CopyParameters` to `true`.
 
 The value inside the `<ProjectTemplateLink>` tag is the exact relative path (relative to solution root) to a project 
 template's own `.vstemplate` file. There indeed is going to be a mapping from a project template's root folder
