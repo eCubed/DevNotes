@@ -35,7 +35,6 @@ interface whose responsibility is to convert back and forth to and from a desire
 
 ```csharp
 interface ITimeConverter<TTime>
-   where TTime : class
 {
    TTime ConvertToTime(int secondMark);
    int ConvertToSecondMark(TTime currentTime);

@@ -36,6 +36,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular Schematics", "Angul
 		schematics-primer.md = schematics-primer.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Continuous Scheduling", "Continuous Scheduling", "{51BECD0E-A280-4269-9904-E066E61C4E39}"
+	ProjectSection(SolutionItems) = preProject
+		00-c-scheduling-primer.md = 00-c-scheduling-primer.md
+		01-working-with-time.md = 01-working-with-time.md
+		02-time-cycles.md = 02-time-cycles.md
+		03-scheduling-events.md = 03-scheduling-events.md
+		04-live-schedule.md = 04-live-schedule.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

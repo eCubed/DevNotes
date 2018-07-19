@@ -8,26 +8,15 @@ we have an `ITimeCycle` interface:
 
 ```csharp
 
-public interface ITimeCycle : IIdentifiable<long>, IInteraction
-{
-   /* Shown as courtesy for the fact that an ITimeCycle is an IInteraction
-   int SystemObjectId { get; set; }
-   string RecordId { get; set; }
-   */
-
+public interface ITimeCycle : IIdentifiable<long>
+{   
+   string Name { get; set; }
    int TotalDuration { get; set; } 
 }
-
 ```
 
-Since this is very abstract, we do not know what holds a sequence of events. It could
-be a TV channel. It could be a thread in a forum. So, we will let records of various
-entities be associated with a given time cycle to be scheduled against.
+A TimeCycle is a referenced entity, and it is intended to be created by top-level admins.
 
-A TimeCycle is a write-once-read-only entity. The `TotalDuration` property is the
-time cycle duration.
-
-We now have a structure to schedule to.
 
 # Creating a Time Cycle
 
@@ -35,15 +24,13 @@ We will have a `TimeCycleManager<TTimeCycle>` class that will manage creation of
 time cycles, as well as other operations.
 
 ```csharp
-public async Task<ManagerResult<TTimeCycle>> CreateAsync(
-   int systemObjectId,
-   string recordId,
+public async Task<ManagerResult> CreateAsync(
+   string name,
    int totalDuration
    );
 
-public async Task<ManagerResult<TTimeCycle>> CreateAsync(
-   int systemObjectId,
-   string recordId,
+public async Task<ManagerResult> CreateAsync(
+   string name,
    TimeCycleDuration timeCycleDuration,
    );
 ```
@@ -54,3 +41,11 @@ provided in the `TimeCycleDuration` `enum`. The variant that takes in `TimeCycle
 is for convenience.
 
 Once a time cycle is created, we can now schedule against it.
+
+# Updating a Time Cycle
+We will only allow editing of the name. We will not change the total duration because the
+time cycle may have entities that depend on it.
+
+```csharp
+public async Task<ManagerResult> UpdateAsync(int id, string newName);
+```
