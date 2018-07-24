@@ -17,8 +17,11 @@ However, a season's schedule isn't always one time cycle playing over and over a
 time cycle in the middle of the season for let's say 4 weeks, to accomodate, for example, the Olympics. We would then resume with the
 original time cycle to complete the rest of the season.
 
+An `ILineup` is also an interaction to associate it with a given record. We may think of a SO-recordId combination as a single channel
+to schedule lineups.
+
 ```csharp
-public interface ILineup : IIdentifiable<long>
+public interface ILineup : IIdentifiable<long>, IInteraction
 {
     string Name { get; set; }
     DateTime StartDateTime { get; set;}

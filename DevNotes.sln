@@ -42,7 +42,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Continuous Scheduling", "Co
 		01-working-with-time.md = 01-working-with-time.md
 		02-time-cycles.md = 02-time-cycles.md
 		03-scheduling-events.md = 03-scheduling-events.md
-		04-live-schedule.md = 04-live-schedule.md
+		04-lineup.md = 04-lineup.md
 	EndProjectSection
 EndProject
 Global
