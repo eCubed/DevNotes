@@ -233,10 +233,8 @@ namespace MyConsoleApp
       services.AddIdentity<MyUser, MyRole>()
         .AddEntityFrameworkStores<MyDbContext>()
         .AddDefaultTokenProviders();
-
-      ServiceProvider = services.BuildServiceProvider();
-
-      services.AddSingleton<ISomeService, SpecificService>(Configuration);
+        
+      services.AddSingleton<ISomeService, SpecificService>();
       /* More service interface-to-concrete-class declarations as needed */
 
       ServiceProvider = services.BuildServiceProvider();
