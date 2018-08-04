@@ -42,9 +42,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Newtonsoft", "Newtonsoft", 
 		01-deserialization-of-interface-types.md = 01-deserialization-of-interface-types.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asp.NET Core", "Asp.NET Core", "{AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console Apps", "Console Apps", "{2692CC95-C3B7-4385-981B-E140F536292A}"
+	ProjectSection(SolutionItems) = preProject
+		00-DI and the Console App.md = 00-DI and the Console App.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2692CC95-C3B7-4385-981B-E140F536292A} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
