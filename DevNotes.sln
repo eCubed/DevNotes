@@ -46,6 +46,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asp.NET Core", "Asp.NET Cor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console Apps", "Console Apps", "{2692CC95-C3B7-4385-981B-E140F536292A}"
 	ProjectSection(SolutionItems) = preProject
+		00-Console App Primer.md = 00-Console App Primer.md
+		00-Deploying a ConsoleApp.md = 00-Deploying a ConsoleApp.md
 		00-DI and the Console App.md = 00-DI and the Console App.md
 	EndProjectSection
 EndProject
