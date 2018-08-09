@@ -51,12 +51,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console Apps", "Console App
 		00-DI and the Console App.md = 00-DI and the Console App.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Design Software", "Design Software", "{30B5294C-B3C4-4A89-B123-C09F6533C255}"
+	ProjectSection(SolutionItems) = preProject
+		10-free-software-desired-capabilities.md = 10-free-software-desired-capabilities.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{B947A5F1-6E94-48B5-99B9-E025F4E4C574}"
+	ProjectSection(SolutionItems) = preProject
+		00-logging-overview.md = 00-logging-overview.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Miscellaneous", "Miscellaneous", "{7BA433B0-A400-4701-A710-D2B7687BC15A}"
+	ProjectSection(SolutionItems) = preProject
+		00-configuration-and-types.md = 00-configuration-and-types.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2692CC95-C3B7-4385-981B-E140F536292A} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
+		{B947A5F1-6E94-48B5-99B9-E025F4E4C574} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
+		{7BA433B0-A400-4701-A710-D2B7687BC15A} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
