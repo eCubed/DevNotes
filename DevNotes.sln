@@ -51,6 +51,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console Apps", "Console App
 		00-DI and the Console App.md = 00-DI and the Console App.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Design Software", "Design Software", "{30B5294C-B3C4-4A89-B123-C09F6533C255}"
+	ProjectSection(SolutionItems) = preProject
+		10-free-software-desired-capabilities.md = 10-free-software-desired-capabilities.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
