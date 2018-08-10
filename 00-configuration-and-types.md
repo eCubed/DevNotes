@@ -29,11 +29,7 @@ public class Startup
    }
 
    public void ConfigureServices(IServiceCollection services)
-   {
-     /* Tells the app to do configurations, and automatically read from appsettings.json
-     */
-     services.AddConfiguration();
-     
+   {          
      /* Instantiate a blank/default instance of the app's unique configuration object.
      */
      var config = new MyAppConfiguration();
