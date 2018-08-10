@@ -29,7 +29,8 @@ public class Startup
    }
 
    public void ConfigureServices(IServiceCollection services)
-   {          
+   {   
+     ...
      /* Instantiate a blank/default instance of the app's unique configuration object.
      */
      var config = new MyAppConfiguration();
@@ -43,10 +44,35 @@ public class Startup
         not as some interface.
      */
      services.AddSingleton(config);
-
-     Configuration.Bind()
+     ...
    }
 }
 ```
 
 That's it! Easy-peasy!
+
+# Usage
+
+The unique configuration object is now ready for injection in controllers, middleware, and other services that may need it.
+We simply include it as its actual type, not interface as we do with services, as a parameter. Here is an controller
+example that requests it:
+
+```csharp
+
+public class ValuesController : Controller
+{
+   private MyAppConfiguration MyAppConfiguration { get; set; }
+
+   public ValuesController(MyAppConfiguration myAppConfiguration) 
+   {
+     MyAppConfiguration = myAppConfiguration;
+   }
+}
+```
+
+We can now access that configuration object as an object easily - we'll get Intellisense! We used to have to type 
+`Configuration["Key"]` where we usually forgot what the actual key was so we'd have to look up what we put down
+in the appsettings.json file. This was tedious and error prone. We would've had to convert to boolean or number
+when we did it the `Configuration["Key"]` way, which was additional typing. Now, we get non-strings as their
+actual type!
+
