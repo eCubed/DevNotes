@@ -19,14 +19,18 @@ But we may have a problem. Our implementation might not adhere to standards and 
 revisit, research, and study middleware that ASP.net Core has for us out-of-the-box to utilize.
 
 ## Sensitive Information We Currently Store in appsettings.json
-From various tutorials, we have adapted the practice of putting the connection string in plain text. Although we told our
-repository not to track appsettings.json, the connection string must have made it to the repo in an earlier commit before
-we added the entry to .gitignore. To this day, we are making sure we first fix .gitignore to untrack appsettings files,
-but it still isn't secure.
+From various tutorials, we have adapted the practice of putting the connection string in plain text into appsettings.json.
+Although we told our repository not to track appsettings.json, the connection string must have made it to the repo in an earlier
+commit before we added the entry to .gitignore. To this day, we are making sure we first fix .gitignore to untrack appsettings
+files, but it still isn't secure.
 
 There is supposed to be a way to surely manage these connection strings, which does not store the plain text in appsettings.json.
 We are still not so sure about whether we will be able to obtain back the plain text connection string should we need to
 clone the repo onto another team member's machine. We will need to investigate this.
+
+See the [User Secrets](01-user-secrets.md) article. We have researched and tried it out. It works well. However, we would not
+get back the secretly-stored settings prepared in one machine when we clone the repo to another machine. On that other machine,
+the secrets need to be set again manually.
 
 ## Certificates?
 These are supposedly a security feature that must be implemented for the deployed project. We are not sure about them, especially

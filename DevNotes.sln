@@ -64,11 +64,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Miscellaneous", "Miscellaneous", "{7BA433B0-A400-4701-A710-D2B7687BC15A}"
 	ProjectSection(SolutionItems) = preProject
 		00-configuration-and-types.md = 00-configuration-and-types.md
+		01-hosting-environment.md = 01-hosting-environment.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Security", "Security", "{CFE69471-5D15-44C0-85CB-47D9AF598CBC}"
 	ProjectSection(SolutionItems) = preProject
 		00-overview.md = 00-overview.md
+		01-user-secrets.md = 01-user-secrets.md
 	EndProjectSection
 EndProject
 Global
