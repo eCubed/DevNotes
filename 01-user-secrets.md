@@ -102,12 +102,26 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## Concerns about Production Deployment
+## User Secrets in Production Deployment
 
 Microsoft intends for us to use user secrets ONLY for development. Now, our project will have scattered around it DI-injected
-secret configuration object references. When our app is finally deployed to production, we cannot guarantee that we'll have
-a secrets.json file associated with our deployed package. Chances are, the app on the production machine would not be running
-under VS anyway, so we would not have an opportunity to edit such a secret file. Our app on that server wouldn't be running under VS anyway, so we can't
+secret configuration object references. When our app is finally deployed to production, the app will not look for a secrets.json
+file. We will need to simulate the contents of the development secrets.json file via system environment variables.
 
-So far, the only "cure" for this is to actually put the secret json in the deployed appsettings.production.json. That's
-tedious. We are currently researching how to resolve the deployment issue.
+When the app is running in production, Asp.NET Core not only looks in appsettings[.environemntName].json files, but also in
+the system environment variables. There is a way in system environment variables to replicate JSON object hierarchy. If we look
+at our secrets.json file, we have a top-level "SecretConfig" object, and it has the properties "ApiKey", "ApiSecret", and "ConnectionString".
+Those properties and their values translate to "SecretConfig__ApiKey", "SecretConfig__ApiSecret", and "SecretConfig__ConnectionString".
+The double underscore is the "syntax" that Asp.NET Core will interpret as the dot in code to access property values. So, we can go ahead and
+add those variables to whatever system we're going to deploy the app. We may need to consult OS-specific ways to set environment
+variables.
+
+For Windows, though, we will need to run in the Command Prompt `iisreset /noforce` so that IIS will immediately recognize any changes
+we made when setting system environment variables. As a caution, resetting IIS may impact other websites already running in the system,
+so system-wide planning will be necessary.
+
+Warning: If you set environment variables to test a production deployment ON YOUR DEVELOPMENT MACHINE, those environment variables will
+win (or be the ones that will actually apply), EVEN IN DEVELOPMENT MODE. Yes, you may set secret information in the regular appsettings
+files, or even in secrets.json, but values there will ultimately not make it in development. Asp.NET Core forces the environment variables
+to take effect if found, and will override anything set in any .json settings files!
+
