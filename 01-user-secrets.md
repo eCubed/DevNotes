@@ -91,7 +91,10 @@ public void ConfigureServices(IServiceCollection services)
   var secretConfig = new SecretConfiguration();
 
   /* Fill the secret configuration object. Configuration will find that object by the provided key from either appsettings.json
-     or secrets.json, and once it finds the property, it will save the JSON data to our object
+     or secrets.json, and once it finds the property, it will save the JSON data to our object. In production, ASP.net also looks
+     for environment variables that have been named in a certain way that reflects the object hierarchy of the SecretConfiguration
+     class, and if the system finds those environment variables, they will take effect and override anything from any
+     .json file we create.
   */
   Configuration.Bind("SecretConfig", secretConfig);
 
@@ -124,4 +127,12 @@ Warning: If you set environment variables to test a production deployment ON YOU
 win (or be the ones that will actually apply), EVEN IN DEVELOPMENT MODE. Yes, you may set secret information in the regular appsettings
 files, or even in secrets.json, but values there will ultimately not make it in development. Asp.NET Core forces the environment variables
 to take effect if found, and will override anything set in any .json settings files!
+
+Heads Up: We have generically named those environment variables just to demonstrate how to set them up and to see that everything works.
+The production machine may have multiple websites running on it, who may also need to have similar confidential entries in the system.
+We will probably need to name our environment variables to also reflect the app that reads it. This means that we would also need to
+construct our secret POCO to reflect the environment variable naming.
+
+In practice, though, we would and should NOT be developing on the same physical machine as production. On the dev machines, we would have
+those secret.json files, already sorted out per application. On the production machine, we will have the corresponding environment variables.
 
