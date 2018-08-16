@@ -39,6 +39,6 @@ access them in our code. Also, we don't know how we'll handle these certificates
 
 ## Https
 We are working with Asp.NET Core 2.0, and we do not know exactly how to set this up. At this time, we only like to think that
-we do absolutely nothing different in our base code, not even set it up in Startup.cs. All we need to assume is that the
-IIS that we'll copy our website to will simply need to state that the website is https. It turns out that we may have to
-do more than assume that IIS will take care of it.
+we do absolutely nothing different in our base code, not even some setup code in Startup.cs. We would like to assume that
+the host (IIS) simply need to state that the website is https. It turns out that we may have to do more than just rely on
+the host to take care of HTTPS. We will examine 
