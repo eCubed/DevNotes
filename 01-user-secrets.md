@@ -15,8 +15,7 @@ So what's left, then, that we could save in appsettings.json?
 * Form Labels and prompt text
 * Short messages that will appear on more than one page
 
-Note: The following is for a machine that has the Asp.NET Core 2.1 SDK installed. We are not sure if we have access to
-certain files saved outside our projects from inside VS.
+Note: The following is for a machine that has Asp.NET Core 2.O SDK or above installed.
 
 ## Creation of the Secret Configuration POCO
 
@@ -51,14 +50,14 @@ if we right-clicked the project and chose to edit the project's .csproj file. It
 ```
 
 Yes, this GUID will be checked into the repo. Yes, this will be the app's unique secrets id on any machine it would be cloned
-to.
+to. No, this is not considered sensitive information.
 
 ### secrets.json
 Our application will have a secrets.json file associated with it. No, we did not create this - VS and the operating system did upon
 creating our project. No, this file is NOT saved with the project so that it does not get checked into a repo ever. It is a file in a
-special location on the developer's machine that both VS and the OS knows about. That user secret key value is actually the name of
+special location on the developer's machine that both VS and the OS knows about. That user secrets id value is actually the name of
 a folder somewhere on the hard drive, which would ensure us that we are properly editing the correct secrets.json file. The name of
-this file is mandatory and we should not change it!
+this file has to be exactly secrets.json.
 
 If we right-click on our project, and chose "Manage User Secrets", an editor window for secrets.json will show. We can fill this file
 with JSON specific to our application:
@@ -105,7 +104,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-## User Secrets in Production Deployment
+## User Secrets in Production - Environment Variables
 
 Microsoft intends for us to use user secrets ONLY for development. Now, our project will have scattered around it DI-injected
 secret configuration object references. When our app is finally deployed to production, the app will not look for a secrets.json
@@ -121,12 +120,14 @@ variables.
 
 For Windows, though, we will need to run in the Command Prompt `iisreset /noforce` so that IIS will immediately recognize any changes
 we made when setting system environment variables. As a caution, resetting IIS may impact other websites already running in the system,
-so system-wide planning will be necessary.
+so system-wide planning will be necessary. This `iisreset`, even along with starting and stopping the web app and corresponding app pool
+in IIS, will only detect newly-set or edited environment variables, which is what we want. However, removing system variables and then running
+these commands does not work - those deleted system variables are still around and won't truly get deleted until we reboot the machine.
 
-Warning: If you set environment variables to test a production deployment ON YOUR DEVELOPMENT MACHINE, those environment variables will
-win (or be the ones that will actually apply), EVEN IN DEVELOPMENT MODE. Yes, you may set secret information in the regular appsettings
-files, or even in secrets.json, but values there will ultimately not make it in development. Asp.NET Core forces the environment variables
-to take effect if found, and will override anything set in any .json settings files!
+Warning: If you set environment variables to test a production deployment ON THE DEVELOPMENT MACHINE, those environment variables will
+win (AKA, be the ones that will actually apply), EVEN IN DEVELOPMENT/DEBUG MODE. Yes, we may set secret information in the regular appsettings
+files, or even in secrets.json, but values there will ultimately not make it when running the app in debug mode. Asp.NET Core forces the 
+environment variables to take effect if found, and will override anything set in any .json settings file!
 
 Heads Up: We have generically named those environment variables just to demonstrate how to set them up and to see that everything works.
 The production machine may have multiple websites running on it, who may also need to have similar confidential entries in the system.
@@ -135,4 +136,13 @@ construct our secret POCO to reflect the environment variable naming.
 
 In practice, though, we would and should NOT be developing on the same physical machine as production. On the dev machines, we would have
 those secret.json files, already sorted out per application. On the production machine, we will have the corresponding environment variables.
+
+## User Secrets in Production - No Control of Environment Variables
+
+What if we need to deploy our app to a server like a shared host, or to one where we do not have access to the OS to set environment variables?
+Then we will need to copy the secrets json object from secrets.json and paste it as a top-level object in appsettings.production.json. Now, this
+situation is not ideal because it is still highly possible that someone will make the mistake of checking in appsettings.production.json to
+source control. For now, let us assume that we've guarded this file not to make it to source control. When we republish and we get a new
+appsettings.production.json file, now with the secret json object, the production app will apply those to our secret configuration object
+we previously set up in Startup.cs.
 
