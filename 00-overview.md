@@ -41,4 +41,8 @@ access them in our code. Also, we don't know how we'll handle these certificates
 We are working with Asp.NET Core 2.0, and we do not know exactly how to set this up. At this time, we only like to think that
 we do absolutely nothing different in our base code, not even some setup code in Startup.cs. We would like to assume that
 the host (IIS) simply need to state that the website is https. It turns out that we may have to do more than just rely on
-the host to take care of HTTPS. We will examine 
+the host to take care of HTTPS.
+
+We have examined [https with Asp.NET Core 2.0](01-https-asp-net-core-20.md). It turns out that there are scenarios that we would
+give our app or IIS more control, which results in the same thing - forcing https, and the amount of control to allocate for
+either our app or IIS is based on preference.
