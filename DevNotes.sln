@@ -77,6 +77,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosting", "Hosting", "{DFFC76D5-9700-4767-90D0-A0C1F467C8E2}"
 	ProjectSection(SolutionItems) = preProject
 		00-hosting-overview.md = 00-hosting-overview.md
+		01-when-website-is-requested.md = 01-when-website-is-requested.md
 		02-setting-up-sites-on-vps.md = 02-setting-up-sites-on-vps.md
 	EndProjectSection
 EndProject
