@@ -24,7 +24,8 @@ gave a starting one for us via email confirmation.
 Not all providers offer SSL, so we need to be careful of this. Even if they offer SSL, we need to be careful because many of them offer only one
 certificate, good for only one domain, for only one year. At best, we want a host that offers unlimited free SSLs for all domains and subdomains
 as long as we're active with them. Minimally, if they only offer 1 certificate for free, it better be wildcard because we'll start with one domain
-with many subdomains. Depending on the host, we will need to know how to apply the SSL they offered to all of our domains and subdomains.
+with many subdomains. Depending on the host, we will need to know how to obtain, find it in the file system, apply the SSL they offered to all 
+of our domains and subdomains. 
 
 Perhaps we may also need to learn how to find SSL providers if our chosen host doesn't offer SSL. This is the less ideal situation. There are some
 cheap SSL deals but in general, the cheaper it is, the less trustworthy it is, and the more reputable the SSL provider, the more expensive the
@@ -45,15 +46,13 @@ public nameservers show up when people look up our website's WhoIs information, 
 our business's domain name instead of the host's domain. 
 
 (But a DNS question arises. If a name server's job is supposed to be to return an IP address for the request's domain, then what external entity
-(there's got to be) resolves the nameserver's "url" to an IP address back to the registrar? Let's take for a moment as if we've chosen a shared
-hosting account. We would need to report back to the registrar our host's public name servers, not those name servers' IP addresses. How would
-the registrar find that public name server given only the name of the name server? When the DNS server is on the same VPS/IP address as our websites, 
-how would the registrar find our VPS if there wasn't the public name server that would have told the registrar the IP address of our website?
+(there's got to be) resolves the name server's "url" to an IP address back to the registrar? How would registrar find our VPS if there wasn't the
+public name server that would have told the registrar the IP address of our name server?
 
 We have a theory that once our VPS is active, and its DNS server running, our VPS will ultimately be queried for its own IP address, even if the
 request comes from the registrar. It is said that DNS servers "know about each other", and would forward to another DNS server if it didn't have
 IP information of the request, and so on until a DNS server down the line has the IP of the domain requested. But if we set up our DNS server
-ourselves, we figure that no other DNS server out there knows that our VPS exists, let alone have forwarding info to our DNS server! If ever some
+ourselves, we figure that no other DNS server out there knows that our VPS even exists, let alone have forwarding info to our DNS server! If ever some
 other DNS server somehow knows the whereabouts of our DNS server, then we, too, can have forwarding info to other DNS servers. This way, we participate
 in the universal network for search of IP addresses. But for now, let's assume that the moment we commit those DNS settings and our VPS is up
 and running, our DNS information will be found.)
@@ -93,6 +92,6 @@ database update` for working with MSSQL. We need to find tooling that will let u
 
 ## Summary
 
-- We will (unfortunately, at least from the start) do most, if not all, administration work via command line.
+- We will (unfortunately, at least from the start) do most, if not all, administration work via command line, including installing software.
 - We will need to learn hundreds of commands and many of their flags, parameters, and allowed parameter values.
-- At the end, we gain a lot of experience.
+- The main difference Asp.NET Core will be code that sets up and uses MySQL instead of MSSQL.

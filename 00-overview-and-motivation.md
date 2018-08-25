@@ -1,7 +1,7 @@
 # Linux - Overview and Motivation
 
 This series is for my own education, experience, and exploration, so read these Linux articles as if a developer new to Linux is speaking about
-their experience in adding it to their development arsenal.
+their experience in adding it to their skills.
 
 ## My Development Background
 
@@ -21,8 +21,8 @@ thought of learning more beyond programming has crossed my mind. I didn't really
 in the past to set up all of that for me, and SSL was something I blatantly ignored (because the IT department set that up for projects I've worked
 on). I think it's a good time to add new skills, and web hosting seems to be an excellent logical next step (or levelling up as I like to call it).
 
-I also know that I can run Asp.NET Core web applications on a Linux server, which means that I can develop the application on a Windows machine as
-I always have (and always will), and yes, I've always written .NET Core apps with regard to being able to run on Mac and Linux machines. Then I'll
+I also know that I can run Asp.NET Core web applications on a Linux server, which means that I can develop applications on a Windows machine as
+I always have (and always will), and yes, I've always written .NET Core ensuring that apps would to run on Mac and Linux machines. Then I'll
 have to copy published files to the Linux server, which shouldn't be too difficult to do.
 
 I have heard my supervisor discuss the possibility of someday hosting on the Linux platform for performance, for future projects. I've also noticed
