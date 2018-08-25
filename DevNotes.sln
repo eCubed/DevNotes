@@ -81,6 +81,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosting", "Hosting", "{DFFC
 		02-setting-up-sites-on-vps.md = 02-setting-up-sites-on-vps.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{66303EDE-E644-45F0-8E79-B9BA483630D4}"
+	ProjectSection(SolutionItems) = preProject
+		00-overview-and-motivation.md = 00-overview-and-motivation.md
+		01-setup-knowhows.md = 01-setup-knowhows.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +96,7 @@ Global
 		{B947A5F1-6E94-48B5-99B9-E025F4E4C574} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 		{7BA433B0-A400-4701-A710-D2B7687BC15A} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 		{CFE69471-5D15-44C0-85CB-47D9AF598CBC} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
+		{66303EDE-E644-45F0-8E79-B9BA483630D4} = {DFFC76D5-9700-4767-90D0-A0C1F467C8E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
