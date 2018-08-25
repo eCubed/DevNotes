@@ -51,7 +51,7 @@ we will want to break everything down into individual paths for individual contr
 11. **Smoothen Tool.** Many have only a mouse to draw, and it results in very jagged paths. Even with a pen and tablet, the
 results may still be rough. The smoothen tool, when dragged in a close proximity to a jagged piece of path, would decrease
 the number of anchor points, make some adjustments, and intelligently guess the intended smooth curve. This tool isn't
-perfect, but it is far more often than not effective.
+perfect, but it is far more often effective than ineffective.
 
 ## Adobe Photoshop
 1. **Content Aware Fill.** This tool allows us to select an area with something in it that we want gone. When the operation
@@ -67,3 +67,11 @@ be able to content-aware-fill those areas.
 3. **Feather Selection.** Sometimes, we might want to select an area and affect it visually, however, we want some smooth transition
 between the inside and outside of the selection when we're done applying our desired effect. We should also be able to define
 the feather radius to control how smooth or abrupt the transition.
+4. **Save and Load Selection.** Selection is tough, so it may be handy to be able to save them and later retrieve them. Saved
+selections would be part of the file.
+5. **Selection by Approximate Color.** We would like to select regions that have the same approximate color. We should be able to
+set a tolerance value to determine cutoff points (what color is different enough not to be selected).
+6. **Boolean Selection.** We should also be able to add to selection, and at times, subtract from selection.
+7. **Image Offset.** This tool first tiles the image, and then offsets the viewing frame so that we will be able to see the edges
+and a corner of the original image. This is helpful for creating seamless background images where we can effectively "erase" the
+original seams with various tricks depending on the image.
