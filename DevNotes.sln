@@ -87,6 +87,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{66303EDE
 		01-setup-knowhows.md = 01-setup-knowhows.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TypeScript", "TypeScript", "{5A8CD52A-6326-44B6-AA33-B064CDD4A72D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Observations", "Observations", "{F3D5B800-BB78-4AC0-9CBD-6F80DE4A48D9}"
+	ProjectSection(SolutionItems) = preProject
+		00-typescript-observations-overview.md = 00-typescript-observations-overview.md
+		01-data-types.md = 01-data-types.md
+		02-interfaces-and-classes.md = 02-interfaces-and-classes.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +106,7 @@ Global
 		{7BA433B0-A400-4701-A710-D2B7687BC15A} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 		{CFE69471-5D15-44C0-85CB-47D9AF598CBC} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 		{66303EDE-E644-45F0-8E79-B9BA483630D4} = {DFFC76D5-9700-4767-90D0-A0C1F467C8E2}
+		{F3D5B800-BB78-4AC0-9CBD-6F80DE4A48D9} = {5A8CD52A-6326-44B6-AA33-B064CDD4A72D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
