@@ -47,14 +47,15 @@ learned from researching. I've adapted this tool from Education and I find it ex
 learn. Then based on my experiences and what I've learned before about the topic, I list down what I *know*, hence the *K* in *KWL*. Then, as a learner,
 I write down any of my questions, which are questions on *what*, hence the *W* in *KWL* I want or need to know. Then I go ahead and do my research.
 It is normal that as we research, we will have more questions, so I add those questions. When I find my answers, I write them below the question.
-The answers are the *L* in *KWL*, meaning what we've **learned** from researching.
+The answers are the *L* in *KWL*, meaning what we've **learned** from researching. The KWL document is again, a tool for learning, reflection, and
+review, but not really a reference or guide because it's by nature, not so organized.
 
 At the end, I go back and read the KWL document, make some edits, and out of it, create the actual instructional document.
 
 **The Instructional Document.** I believe that to teach is to learn twice, and by writing instructions on the concepts and how-tos of something, we gain
 a better and thorough understanding. Why and how? Because as we write instructions, we anticipate what a reader might ask or the fact that people learn
-in different ways. We will think of fitting analogies. We may rewrite a process in a different order, for example, one being from the perspective of a
-user vs. a developer vs. computer. I personally also like to include pitfalls or what I think are easy mistakes to make. There are many things that
-seem obvious but they end up being more involved.
+in different ways, and we would want to address those questions and learning styles. We will think of fitting analogies. We may rewrite a process
+in a different order, for example, one being from the perspective of a user vs. a developer vs. computer. I personally also like to include pitfalls 
+or what I think are easy mistakes to make. There are many things that seem obvious but they end up being more involved.
 
 
