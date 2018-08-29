@@ -94,8 +94,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Self Notes", "Self Notes", "{88BE9A73-5EC9-480B-AE05-3874F6137B1D}"
 	ProjectSection(SolutionItems) = preProject
 		2018-08-25-diving-in.md = 2018-08-25-diving-in.md
+		2018-08-28-01-ordered.md = 2018-08-28-01-ordered.md
 		2018-08-28-02-logging-into-vps.md = 2018-08-28-02-logging-into-vps.md
-		2018-08-28-ordered.md = 2018-08-28-ordered.md
 	EndProjectSection
 EndProject
 Global
