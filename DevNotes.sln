@@ -96,6 +96,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Self Notes", "Self Notes", 
 		2018-08-25-diving-in.md = 2018-08-25-diving-in.md
 		2018-08-28-01-ordered.md = 2018-08-28-01-ordered.md
 		2018-08-28-02-logging-into-vps.md = 2018-08-28-02-logging-into-vps.md
+		2018-08-29-01-setting-up-bind.md = 2018-08-29-01-setting-up-bind.md
 		2018-08-29-01-setting-up-nginx.md = 2018-08-29-01-setting-up-nginx.md
 	EndProjectSection
 EndProject
