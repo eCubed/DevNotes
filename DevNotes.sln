@@ -104,6 +104,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference", "Reference", "{6964D5C5-B1EA-46AD-B1FE-18046EB7E7A7}"
 	ProjectSection(SolutionItems) = preProject
 		linux-ref-filesystem.md = linux-ref-filesystem.md
+		linux-ref-programs.md = linux-ref-programs.md
 		linux-ref-services.md = linux-ref-services.md
 		linux-ref-usermanagement.md = linux-ref-usermanagement.md
 		linux-reference-index.md = linux-reference-index.md
