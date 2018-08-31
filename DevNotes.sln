@@ -98,6 +98,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Self Notes", "Self Notes", 
 		2018-08-28-02-logging-into-vps.md = 2018-08-28-02-logging-into-vps.md
 		2018-08-29-01-setting-up-bind.md = 2018-08-29-01-setting-up-bind.md
 		2018-08-29-01-setting-up-nginx.md = 2018-08-29-01-setting-up-nginx.md
+		2018-08-31-01-starting-over.md = 2018-08-31-01-starting-over.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference", "Reference", "{6964D5C5-B1EA-46AD-B1FE-18046EB7E7A7}"
+	ProjectSection(SolutionItems) = preProject
+		linux-ref-filesystem.md = linux-ref-filesystem.md
+		linux-ref-services.md = linux-ref-services.md
+		linux-ref-usermanagement.md = linux-ref-usermanagement.md
+		linux-reference-index.md = linux-reference-index.md
 	EndProjectSection
 EndProject
 Global
@@ -112,6 +121,7 @@ Global
 		{66303EDE-E644-45F0-8E79-B9BA483630D4} = {DFFC76D5-9700-4767-90D0-A0C1F467C8E2}
 		{EB8C96D3-DD67-4B2B-93F7-8B4AD232ADAB} = {66303EDE-E644-45F0-8E79-B9BA483630D4}
 		{88BE9A73-5EC9-480B-AE05-3874F6137B1D} = {66303EDE-E644-45F0-8E79-B9BA483630D4}
+		{6964D5C5-B1EA-46AD-B1FE-18046EB7E7A7} = {66303EDE-E644-45F0-8E79-B9BA483630D4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
