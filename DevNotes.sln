@@ -90,6 +90,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{66303EDE
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction", "{EB8C96D3-DD67-4B2B-93F7-8B4AD232ADAB}"
+	ProjectSection(SolutionItems) = preProject
+		bind-setup.md = bind-setup.md
+		nginx-setup.md = nginx-setup.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Self Notes", "Self Notes", "{88BE9A73-5EC9-480B-AE05-3874F6137B1D}"
 	ProjectSection(SolutionItems) = preProject
