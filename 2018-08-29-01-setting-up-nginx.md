@@ -20,25 +20,20 @@ We will see logs that packages are being downloaded and setup, much like what ha
 
 ## Firewall Setup
 
-We need to add some security before serving web pages, so we need to activate the firewall:
+The Linux firewall is known as `ufw`. Since my host sets up a firewall right outside my VPS, I will not bother with
+enabling the firewall from inside my VPS.
 
-`sudo ufw enable`
+## First Viewing
 
-It wasn't enabled by default when the VPS was created.
+By default, pointing our browser to our IP address will automatically show the default Nginx page. This is a sign that
+Nginx is up and running.
 
-But now, we'll need to allow Nginx through. By default, the firewall blocks everything.
+## Setting up Websites
 
-`sudo ufw allow 'Nginx Full'`
+From having some IIS experience, I have the following questions:
 
-Since we activated the firewall, let's allow OpenSSH as well to make sure we can log in next time.
-
-`sudo ufw allow OpenSSH`
-
-Note that single quotes were necessary when what we want to allow has two or more words.
-
-Now, let's look at the firewall status:
-
-`sudo ufw status`
-
-This lists only what we've allowed through.
-
+- Do I have to create a CNAME record for each subdomain?
+- What is the equivalent of setting up bindings for each website?
+- How about SSL and using certificates?
+- Do I have to set permissions for each folder that contains web files?
+- How do I set default pages at the root?
