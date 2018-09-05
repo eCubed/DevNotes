@@ -111,6 +111,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Self Notes", "Self Notes", 
 		2018-09-04-01-ssl-dilemma.md = 2018-09-04-01-ssl-dilemma.md
 		2018-09-04-02-mysql-pursuit.md = 2018-09-04-02-mysql-pursuit.md
 		2018-09-04-03-plan-without-ssl.md = 2018-09-04-03-plan-without-ssl.md
+		2018-09-04-04-ssl-dilemma-solved.md = 2018-09-04-04-ssl-dilemma-solved.md
+		2018-09-04-05-reflection.md = 2018-09-04-05-reflection.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference", "Reference", "{6964D5C5-B1EA-46AD-B1FE-18046EB7E7A7}"
