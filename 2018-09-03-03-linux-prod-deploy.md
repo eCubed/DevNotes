@@ -71,6 +71,10 @@ There may be more settings but the ones that we need to note are `WorkingDirecto
 `ExecStart` (the actual command to run our application), and the `Environment` declarations (especially setting ASPNETCORE_ENVIRONMENT
 to Production).
 
+If the application needs a production counterpart to development's secrets.json, We will need to add those variables and their values here in this file as well.
+The Asp.NET Core app running here will NOT pick up system-wide environment variables, but will pick up variables set here. This is good because we know that the
+environment variables we set here will only apply to this application!
+
 Now, I need to enable the service:
 
 `sudo systemctl enable hwres1.service` or `sudo service hwres1 enable` (?)

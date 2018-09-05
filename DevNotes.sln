@@ -92,6 +92,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction", "{EB8C96D3-DD67-4B2B-93F7-8B4AD232ADAB}"
 	ProjectSection(SolutionItems) = preProject
 		bind-setup.md = bind-setup.md
+		environment-variables.md = environment-variables.md
 		nginx-setup.md = nginx-setup.md
 	EndProjectSection
 EndProject
@@ -113,6 +114,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Self Notes", "Self Notes", 
 		2018-09-04-03-plan-without-ssl.md = 2018-09-04-03-plan-without-ssl.md
 		2018-09-04-04-ssl-dilemma-solved.md = 2018-09-04-04-ssl-dilemma-solved.md
 		2018-09-04-05-reflection.md = 2018-09-04-05-reflection.md
+		2018-09-05-01-progress-and-reflection.md = 2018-09-05-01-progress-and-reflection.md
+		2018-09-05-02-mysql-aspnet-core.md = 2018-09-05-02-mysql-aspnet-core.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference", "Reference", "{6964D5C5-B1EA-46AD-B1FE-18046EB7E7A7}"
