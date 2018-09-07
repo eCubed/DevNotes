@@ -77,7 +77,7 @@ environment variables we set here will only apply to this application!
 
 Now, I need to enable the service:
 
-`sudo systemctl enable hwres1.service` or `sudo service hwres1 enable` (?)
+`sudo systemctl enable hwres1.service`
 
 Then I run it:
 
