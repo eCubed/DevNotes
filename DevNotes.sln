@@ -116,6 +116,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Self Notes", "Self Notes", 
 		2018-09-04-05-reflection.md = 2018-09-04-05-reflection.md
 		2018-09-05-01-progress-and-reflection.md = 2018-09-05-01-progress-and-reflection.md
 		2018-09-05-02-mysql-aspnet-core.md = 2018-09-05-02-mysql-aspnet-core.md
+		2018-09-07-01-deployed-functioning-web-app.md = 2018-09-07-01-deployed-functioning-web-app.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference", "Reference", "{6964D5C5-B1EA-46AD-B1FE-18046EB7E7A7}"
