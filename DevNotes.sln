@@ -133,6 +133,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Main_Journals", "_Main_Jou
 		2018-09-09-01-start-main-journals.md = 2018-09-09-01-start-main-journals.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FFMPEG", "FFMPEG", "{B5BBAFA0-7762-4D16-9CA0-56D2BC050642}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{7218F08A-09EC-4EC3-98C2-1C35183EAE86}"
+	ProjectSection(SolutionItems) = preProject
+		2018-09-10-01-introduction.md = 2018-09-10-01-introduction.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Referemce", "Referemce", "{8D761E43-3A89-4DAA-84E8-2AEE6218FB6B}"
+	ProjectSection(SolutionItems) = preProject
+		ffmpeg-glossary.md = ffmpeg-glossary.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction", "{CC9E4EEF-324E-4871-AF73-7FB8ACE78B11}"
+	ProjectSection(SolutionItems) = preProject
+		ffmpeg-101.md = ffmpeg-101.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -146,6 +163,9 @@ Global
 		{EB8C96D3-DD67-4B2B-93F7-8B4AD232ADAB} = {66303EDE-E644-45F0-8E79-B9BA483630D4}
 		{88BE9A73-5EC9-480B-AE05-3874F6137B1D} = {66303EDE-E644-45F0-8E79-B9BA483630D4}
 		{6964D5C5-B1EA-46AD-B1FE-18046EB7E7A7} = {66303EDE-E644-45F0-8E79-B9BA483630D4}
+		{7218F08A-09EC-4EC3-98C2-1C35183EAE86} = {B5BBAFA0-7762-4D16-9CA0-56D2BC050642}
+		{8D761E43-3A89-4DAA-84E8-2AEE6218FB6B} = {B5BBAFA0-7762-4D16-9CA0-56D2BC050642}
+		{CC9E4EEF-324E-4871-AF73-7FB8ACE78B11} = {B5BBAFA0-7762-4D16-9CA0-56D2BC050642}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
