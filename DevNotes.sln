@@ -128,6 +128,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference", "Reference", "{
 		linux-reference-index.md = linux-reference-index.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Main_Journals", "_Main_Journals", "{035475CF-3D99-4A90-9A68-8D3EE801DF56}"
+	ProjectSection(SolutionItems) = preProject
+		2018-09-09-01-start-main-journals.md = 2018-09-09-01-start-main-journals.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
