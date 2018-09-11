@@ -148,6 +148,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction", "{CC9E4EEF-324E-4871-AF73-7FB8ACE78B11}"
 	ProjectSection(SolutionItems) = preProject
 		ffmpeg-101.md = ffmpeg-101.md
+		ffmpeg-filters.md = ffmpeg-filters.md
 	EndProjectSection
 EndProject
 Global

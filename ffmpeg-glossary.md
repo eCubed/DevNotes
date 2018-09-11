@@ -1,5 +1,10 @@
 # FFMPEG Glossary
 
+**aspect ratio**. The ratio of a video or image's width to height. 4:3 was the ratio for desktop monitors and TVs in the 90s. Much of today's screens are 16:9.
+If we took the dimensions of a video or image and reduced them to their lowest terms, we get an aspect ratio. Resolutions with the same aspect ratio have a linear
+relationship, which means that one visual of a certain resolution, when crammed or stretched into the space of another resolution (of the same aspect ratio), will
+maintain proportion.
+
 **base frame rate**. 24 or 30 frames per second, typically used for shooting typical videos.
 
 **bit rate.** How much data it takes for the CPU to play 1 second worth of a clip. Higher values mean greater detail, though larger file, thus computationally
