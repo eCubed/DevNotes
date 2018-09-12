@@ -1,10 +1,10 @@
 # Angular Reboot
 
 By this time, I have accumulated a good amount of Angular knowledge, developed some front-end apps using even the latest version 6.x,
-and even developed my own schemes and approaches on how to achieve certain goals. But I have not documented about them. And I will
-confess that I do not fully understand much of what I've developed and I don't know a lot of crucial responsibilities, for example, how
-to properly set up and conduct front-end tests. This undertaking will be another "fresh start" dive into Angular development, and this
-time, I'll take it far more seriosly than merely just being able to deploy to production.
+and even developed my own schemes and approaches on how to achieve certain goals. But I have not documented them. I will confess that I 
+do not fully understand much of what I've developed and I don't know a lot of crucial responsibilities, for example, how to properly 
+set up and conduct front-end tests. This undertaking will be another "fresh start" dive into Angular development, and this time, I'll 
+take it more seriosly than merely just being able to deploy an app to production.
 
 In this reboot, I finally want to fully understand and correctly implement and practice the following:
 
@@ -42,3 +42,10 @@ up and any of its reprecussions.
 10. **Changing the Route Programmatically.** I know about navigating to a different route programmatically, but I don't know, for
 example, how to handle when a user turns the page on a paginated result set. I always just modified the DOM, but I'm supposed to also
 modify the route. How would I go about this?
+11. **Modules besides the app module.** Modules are feature that helps with project organization, and may be packaged and deployed to
+npm. I've done this before, didn't fully understand it, so I'll go ahead and relearn it.
+
+Also, I would like to know how to do the following, if possible:
+
+1. **Data-bind public service properties to elements.** From what I know, only immediate properties of a component may be data-bound to
+the UI elements of that component's template (html markup).

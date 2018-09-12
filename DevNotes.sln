@@ -131,6 +131,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Main_Journals", "_Main_Journals", "{035475CF-3D99-4A90-9A68-8D3EE801DF56}"
 	ProjectSection(SolutionItems) = preProject
 		2018-09-09-01-start-main-journals.md = 2018-09-09-01-start-main-journals.md
+		2018-09-12-01-code-editors.md = 2018-09-12-01-code-editors.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FFMPEG", "FFMPEG", "{B5BBAFA0-7762-4D16-9CA0-56D2BC050642}"
@@ -156,6 +157,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{99F9514F-CA50-4374-8B96-643513B67C2C}"
 	ProjectSection(SolutionItems) = preProject
 		2018-09-11-01-angular-reboot.md = 2018-09-11-01-angular-reboot.md
+		2018-09-12-01-scss-reboot.md = 2018-09-12-01-scss-reboot.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction", "{0E0CE537-FA3C-41DF-9072-5DCD16F625BB}"
+	ProjectSection(SolutionItems) = preProject
+		creating-new-angular-6-apps.md = creating-new-angular-6-apps.md
+		scss-infrastructure-in-angular.md = scss-infrastructure-in-angular.md
+		updating-angular-cli.md = updating-angular-cli.md
 	EndProjectSection
 EndProject
 Global
@@ -176,6 +185,7 @@ Global
 		{8D761E43-3A89-4DAA-84E8-2AEE6218FB6B} = {B5BBAFA0-7762-4D16-9CA0-56D2BC050642}
 		{CC9E4EEF-324E-4871-AF73-7FB8ACE78B11} = {B5BBAFA0-7762-4D16-9CA0-56D2BC050642}
 		{99F9514F-CA50-4374-8B96-643513B67C2C} = {C5551210-F907-4F33-BD66-81C03BCEE244}
+		{0E0CE537-FA3C-41DF-9072-5DCD16F625BB} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
