@@ -162,6 +162,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{99F9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction", "{0E0CE537-FA3C-41DF-9072-5DCD16F625BB}"
 	ProjectSection(SolutionItems) = preProject
+		angular-production-deployment.md = angular-production-deployment.md
 		creating-new-angular-6-apps.md = creating-new-angular-6-apps.md
 		scss-infrastructure-in-angular.md = scss-infrastructure-in-angular.md
 		updating-angular-cli.md = updating-angular-cli.md
