@@ -31,9 +31,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VS Templating", "VS Templat
 		03-project-templates-vstemplate.md = 03-project-templates-vstemplate.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular Schematics", "Angular Schematics", "{FD0D6E9D-488D-4648-8ABA-40455FAB7A3C}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schematics", "Schematics", "{FD0D6E9D-488D-4648-8ABA-40455FAB7A3C}"
 	ProjectSection(SolutionItems) = preProject
-		schematics-primer.md = schematics-primer.md
+		angular-schematics-primer.md = angular-schematics-primer.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Newtonsoft", "Newtonsoft", "{972CA014-C66F-4BA5-9855-9AEFC151DA89}"
@@ -151,11 +151,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction"
 		ffmpeg-filters.md = ffmpeg-filters.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angular", "Angular", "{C5551210-F907-4F33-BD66-81C03BCEE244}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{99F9514F-CA50-4374-8B96-643513B67C2C}"
+	ProjectSection(SolutionItems) = preProject
+		2018-09-11-01-angular-reboot.md = 2018-09-11-01-angular-reboot.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{FD0D6E9D-488D-4648-8ABA-40455FAB7A3C} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 		{2692CC95-C3B7-4385-981B-E140F536292A} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 		{B947A5F1-6E94-48B5-99B9-E025F4E4C574} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 		{7BA433B0-A400-4701-A710-D2B7687BC15A} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
@@ -167,6 +175,7 @@ Global
 		{7218F08A-09EC-4EC3-98C2-1C35183EAE86} = {B5BBAFA0-7762-4D16-9CA0-56D2BC050642}
 		{8D761E43-3A89-4DAA-84E8-2AEE6218FB6B} = {B5BBAFA0-7762-4D16-9CA0-56D2BC050642}
 		{CC9E4EEF-324E-4871-AF73-7FB8ACE78B11} = {B5BBAFA0-7762-4D16-9CA0-56D2BC050642}
+		{99F9514F-CA50-4374-8B96-643513B67C2C} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
