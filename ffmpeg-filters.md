@@ -65,7 +65,7 @@ We then continue with the the filter expression per documentation and as our pro
 It will be necessary to name a filtering's immediate output because it may be needed for another filtering down the line. The very last filtering may omit the
 `{destination}` parameter because FFMPEG would then understand that it's the final output anyway, whose results will be saved to the {output}.
 
-## Bonus: Drawing Text on a Video
+## Drawing Text on a Video
 
 Text has a lot of visual information associated with it just like it does in CSS. We will be using the `drawtext` filter to write some text on a video.
 
@@ -75,3 +75,31 @@ There are tons of options we can choose, and we would consult the documentation 
 
 When we specify the `fontfile` parameter, we'll need to escape the colon character this way: `\:` because the colon is reserved for separating "attribute-value"
 pairs.
+
+## Superimposing a Video Onto Base Video
+
+We will need to be given both the start time (offset) of the top video and its actual duration (which can be specified less than the actual top video's duration).
+
+```
+ffmpeg -i {base} -i {top} -filter_complex "[1]setpts=PTS+{topStartTime}/TB[top], 
+ [0:v][top]overlay=enable='between(t,{topStartTime},{topStartTime+topDuration})'" {output}
+```
+
+## Superimposing N Videos Onto Base Video
+
+```
+ffmpeg -i {base} -i {top1} -i {top2} ... -i {topN} -filter_complex
+   "
+   [1]setpts=PTS+{top1StartTime}/TB[top1],
+   [0:v][top1]overlay=enable='between(t, {top1StartTime}, {top1StartTime + top1Duration})[res1]',
+
+   [2]setpts=PTS+{top2StartTime}/TB[top2],
+   [res1][top2]overlay=enable='between(t, {top2StartTime}, {top2StartTime + top2Duration}}[res2]),
+
+   [3]setpts=PTS+{top3StartTime}/TB[top3],
+   [res2][top3]overlay=enable='between(t, {top3StartTime}, {top3StartTime + top3Duration}}[res3]),
+   ...
+   [N]setpts=PTS+{topNStartTime}/TB[topN],
+   [res<N-1>][topN]overlay=enable='between(t, {topNStartTime}, {topNStartTime + topNDuration}}
+   " {output}
+```
