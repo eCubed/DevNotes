@@ -136,6 +136,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Main_Journals", "_Main_Jou
 		2018-09-13-01-adding-atom-plugins.md = 2018-09-13-01-adding-atom-plugins.md
 		2018-09-15-01-more-atom-plugins.md = 2018-09-15-01-more-atom-plugins.md
 		2018-09-17-01-my-stacks.md = 2018-09-17-01-my-stacks.md
+		2018-09-18-01-my-writing-vs-markdown.md = 2018-09-18-01-my-writing-vs-markdown.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FFMPEG", "FFMPEG", "{B5BBAFA0-7762-4D16-9CA0-56D2BC050642}"
