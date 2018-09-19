@@ -174,6 +174,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction"
 		updating-angular-cli.md = updating-angular-cli.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MySQL", "MySQL", "{CCD381DF-682E-415C-87C6-0416EFD8813F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instructions", "Instructions", "{C6745E20-0B60-47A5-861E-F8BC15E3C1B1}"
+	ProjectSection(SolutionItems) = preProject
+		mysql-setup-on-linux.md = mysql-setup-on-linux.md
+		mysql-workbench-intro.md = mysql-workbench-intro.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference", "Reference", "{B8F90F6E-50F3-45FC-8EE0-0A12E44AB312}"
+	ProjectSection(SolutionItems) = preProject
+		mysql-on-insert-trigger-for-default-date.md = mysql-on-insert-trigger-for-default-date.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -193,6 +206,8 @@ Global
 		{CC9E4EEF-324E-4871-AF73-7FB8ACE78B11} = {B5BBAFA0-7762-4D16-9CA0-56D2BC050642}
 		{99F9514F-CA50-4374-8B96-643513B67C2C} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 		{0E0CE537-FA3C-41DF-9072-5DCD16F625BB} = {C5551210-F907-4F33-BD66-81C03BCEE244}
+		{C6745E20-0B60-47A5-861E-F8BC15E3C1B1} = {CCD381DF-682E-415C-87C6-0416EFD8813F}
+		{B8F90F6E-50F3-45FC-8EE0-0A12E44AB312} = {CCD381DF-682E-415C-87C6-0416EFD8813F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
