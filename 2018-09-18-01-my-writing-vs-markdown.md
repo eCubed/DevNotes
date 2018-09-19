@@ -19,7 +19,10 @@ because it saves me the effort of creating the parser.
 So, I have two options. The first one is, I believe the tougher one, and that is to create my own Markdown parser and renderer. This way, I can establish any syntax
 I want and interpret it however I want. This is quite tough to pull, though, since I hate parsing strings (AKA, get down to the level of each character and keep track
 of multiple indexes at a time. That's the tough part - the parsing. I would then collect things into a tree or array of objects corresponding to each Markdown rule,
-and from there, output my HTML or whatever other markup language is needed. I believe that would be the easy part.
+and from there, output my HTML or whatever other markup language is needed. I believe that would be the easy part. Another, IMO, extremely challenging task is to
+implement syntax highlighting myself. I would like to write actual programming language code blocks in plain text, and it would render on a web page with colored
+text, a different color for keywords, comments, control structures, type names, etc. And no, I wouldn't write the color data on the Markdown text. How would we
+implement such a thing?
 
 ## Data Blocks
 

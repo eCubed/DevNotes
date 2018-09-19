@@ -138,6 +138,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Main_Journals", "_Main_Jou
 		2018-09-17-01-my-stacks.md = 2018-09-17-01-my-stacks.md
 		2018-09-18-01-my-writing-vs-markdown.md = 2018-09-18-01-my-writing-vs-markdown.md
 		2018-09-18-02-state-of-my-site-development.md = 2018-09-18-02-state-of-my-site-development.md
+		2018-09-19-01-side-projects-to-work-on.md = 2018-09-19-01-side-projects-to-work-on.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FFMPEG", "FFMPEG", "{B5BBAFA0-7762-4D16-9CA0-56D2BC050642}"
@@ -168,6 +169,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{99F9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction", "{0E0CE537-FA3C-41DF-9072-5DCD16F625BB}"
 	ProjectSection(SolutionItems) = preProject
+		angular-module-dev-and-publication.md = angular-module-dev-and-publication.md
 		angular-production-deployment.md = angular-production-deployment.md
 		creating-new-angular-6-apps.md = creating-new-angular-6-apps.md
 		scss-infrastructure-in-angular.md = scss-infrastructure-in-angular.md

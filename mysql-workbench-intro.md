@@ -70,3 +70,8 @@ drop the current stored procedure of the same name and create a new one in its p
 
 Creating and altering functions is the same administrative experience as creating and altering stored procedures, except we work with the Functions "folder" instead
 of the Stored Procedures "folder".
+
+## Notes
+
+When typing the code for functions, stored procedures, and triggers, we are writing the "dev- friendly form", which does not include the "overhead" of manually 
+putting those delimiters, usually '$$`.
