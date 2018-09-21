@@ -18,7 +18,7 @@ In Angular 6, what we used to call an app is now called a workspace, which can c
 
 We need to cd to the workspace's root and stay there. From the prompt, we create a library:
 
-`ng new library {libraryName}`
+`ng g library {libraryName}`
 
 And for `{libraryName}`, let's go ahead and name it like an npm package, using `@mystuff/first-library`, with the @ and the forward
 slash. After we run the command above, we will have a folder `/projects/mystuff/first-library` automatically created and pre-filled

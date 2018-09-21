@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FCore.Interactions", "FCore
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{4B5E87A2-C2EF-4946-8393-B6A7C47D7227}"
 	ProjectSection(SolutionItems) = preProject
+		nuget-publishing-to-local-network-drive.md = nuget-publishing-to-local-network-drive.md
 		publishing-csharp-project.md = publishing-csharp-project.md
 	EndProjectSection
 EndProject
