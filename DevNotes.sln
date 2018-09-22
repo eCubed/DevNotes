@@ -172,6 +172,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction"
 	ProjectSection(SolutionItems) = preProject
 		angular-module-dev-and-publication.md = angular-module-dev-and-publication.md
 		angular-production-deployment.md = angular-production-deployment.md
+		angular-site-wide-css-layout.md = angular-site-wide-css-layout.md
 		creating-new-angular-6-apps.md = creating-new-angular-6-apps.md
 		scss-infrastructure-in-angular.md = scss-infrastructure-in-angular.md
 		updating-angular-cli.md = updating-angular-cli.md

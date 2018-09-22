@@ -7,11 +7,11 @@ and general padding. We will need other files that would declare styling for htm
 How does Angular know about this `/src/styles.scss` file and all of its rules are automatically accessible and thus, will apply to all components that use those
 rules? It is referenced from `angular.json` in various places. This is where CSS is "manufactured" into the final single CSS file that the browser reads. I this
 file, we import our global styles, reset CSS, and variables. But, we can change this file - name and location that makes more sense for us. We can create an scss
-folder underneath `/src` and move styles.scss to it. But we now, Angular is still looking for `/src/styles.scss`, so we'll need to go to `angular.json` and
+folder underneath `/src` and move styles.scss to it. But now, Angular is still looking for `/src/styles.scss`, so we'll need to go to `angular.json` and
 edit all the references to point to `/src/scss/style.scss` instead. We would need to recompile the application, though.
 
 # _variables.scss
-We need to create an scss file that stores JUST variables and their values to later be used from components. The file will be at `/scss/_variables.scss`:
+We need to create an scss file that stores JUST variables and their values to later be used from components. The file will be at `/src/scss/_variables.scss`:
 
 ```css
 $main-color: #0000cc;
@@ -33,15 +33,19 @@ so that we can later explicitly set them. For this article, as supposedly wrong 
 
 ```css
 * {
-	padding: 0;
-	margin: 0;
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
 }
 ```
+
+The rule `box-sizing: border-box;` means that border and padding will be included when we set the element's width and height. Many find that this approach
+makes more sense and more predictable when laying out rectangular areas against each other to fit snug in their parents' width.
 
 We will need to import `resets` into `styles.scss` for it to take effect before any component SCSS kicks in.
 
 ## Utilities
-Mixins and functions typically go in the folder `/scss/utilities/`. Two utilities that we'll need quite often are clearfix and tintshade:
+Mixins and functions typically go in the folder `src/scss/utilities/`. Two utilities that we'll need quite often are clearfix and tintshade:
 
 `_tintshade.scss`
 ```css
@@ -57,7 +61,7 @@ Mixins and functions typically go in the folder `/scss/utilities/`. Two utilitie
 `_clearfix.scss`
 ```scss
 @mixin clearfix() { 
-	&:before, 
+  &:before, 
   &:after { 
       content: ""; 
       display: table; 
@@ -105,6 +109,10 @@ We only covered how to set up the file-folder structure of SCSS files, knowing w
 For global styles, we finalized that we will only style by tag name or class name, and NEVER target anything depending on what its parents and other ascendants
 are (because that forces something global to be dependent on whatever app it will be styling).
 
-We haven't covered `the :host` pseudo selectors or view scope. We also did not cover vendor-specific SCSS, like what we would use should we need to properly
-display markup in HTML!
+We haven't covered the following:
+
+* The `:host` pseudo selector
+* View scope
+* Vendor-specific SCSS
+* Deciding where to put css rules - component scss, styles.scss, or some global scss file
 
