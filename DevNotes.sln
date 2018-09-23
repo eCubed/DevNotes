@@ -191,6 +191,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference", "Reference", "{
 		mysql-on-insert-trigger-for-default-date.md = mysql-on-insert-trigger-for-default-date.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSS", "CSS", "{6CEA03B8-0289-48C8-849B-5DA6411303E8}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

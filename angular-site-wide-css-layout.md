@@ -169,7 +169,7 @@ nav {
         display: block;
         text-decoration: none;
         font-weight: bold;
-        color: white;
+        color: white;                
       }
     }
   }
