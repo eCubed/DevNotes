@@ -172,7 +172,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction"
 	ProjectSection(SolutionItems) = preProject
 		angular-module-dev-and-publication.md = angular-module-dev-and-publication.md
 		angular-production-deployment.md = angular-production-deployment.md
-		angular-site-wide-css-layout.md = angular-site-wide-css-layout.md
 		creating-new-angular-6-apps.md = creating-new-angular-6-apps.md
 		scss-infrastructure-in-angular.md = scss-infrastructure-in-angular.md
 		updating-angular-cli.md = updating-angular-cli.md
@@ -191,7 +190,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reference", "Reference", "{
 		mysql-on-insert-trigger-for-default-date.md = mysql-on-insert-trigger-for-default-date.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSS", "CSS", "{6CEA03B8-0289-48C8-849B-5DA6411303E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Node", "Node", "{8BEB07B0-2971-4A9F-8D2F-E8179D61662B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journals", "Journals", "{E82DD9FB-467A-4562-9D08-EBB541A9BBC8}"
+	ProjectSection(SolutionItems) = preProject
+		2018-09-24-01-first-node-reflections.md = 2018-09-24-01-first-node-reflections.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instructions", "Instructions", "{0372ECEA-849E-4D47-8EBF-009F97FC32BC}"
 EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
@@ -214,6 +220,8 @@ Global
 		{0E0CE537-FA3C-41DF-9072-5DCD16F625BB} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 		{C6745E20-0B60-47A5-861E-F8BC15E3C1B1} = {CCD381DF-682E-415C-87C6-0416EFD8813F}
 		{B8F90F6E-50F3-45FC-8EE0-0A12E44AB312} = {CCD381DF-682E-415C-87C6-0416EFD8813F}
+		{E82DD9FB-467A-4562-9D08-EBB541A9BBC8} = {8BEB07B0-2971-4A9F-8D2F-E8179D61662B}
+		{0372ECEA-849E-4D47-8EBF-009F97FC32BC} = {8BEB07B0-2971-4A9F-8D2F-E8179D61662B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
