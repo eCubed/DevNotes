@@ -24,13 +24,13 @@ And for `{libraryName}`, let's go ahead and name it like an npm package, using `
 slash. After we run the command above, we will have a folder `/projects/mystuff/first-library` automatically created and pre-filled
 with starting module files, ready for publication.
 
-We would create classes, components, services, etc. in the folder `/project/mystuff/first-app/src/lib`.
+We would create classes, components, services, etc. in the folder `/project/mystuff/first-library/src/lib`.
 
-Once we have created our unique module's files, we edit `/project/mystuff/first-app/src/public_api.ts` and export the classes,
+Once we have created our unique module's files, we edit `/projects/mystuff/first-library/src/public_api.ts` and export the classes,
 components, services, etc., that we need to so that a consuming application may access them.
 
 Note that we included the @ in our package's name, but it didn't make it in the folder name. However, if we look at the file
-`/project/mystuff/package.json`, the name of our package does begin with the @ like we expected.
+`/projects/mystuff/first-library/package.json`, the name of our package does begin with the @ like we expected.
 
 ## Building the Library
 

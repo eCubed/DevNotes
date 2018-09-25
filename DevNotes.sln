@@ -166,6 +166,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{99F9
 	ProjectSection(SolutionItems) = preProject
 		2018-09-11-01-angular-reboot.md = 2018-09-11-01-angular-reboot.md
 		2018-09-12-01-scss-reboot.md = 2018-09-12-01-scss-reboot.md
+		2018-09-25-01-angular-directives.md = 2018-09-25-01-angular-directives.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction", "{0E0CE537-FA3C-41DF-9072-5DCD16F625BB}"
