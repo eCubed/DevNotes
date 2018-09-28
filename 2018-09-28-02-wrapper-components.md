@@ -34,3 +34,127 @@ cut-paste-replace. There is a way to create such a reserved space for any conten
 
 I'll create a new component called `EmpanelComponent`, whose job is to provide the html markup for the panel and to host any content we want!
 
+The .ts file:
+
+```javascript
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'lib-empanel',
+  templateUrl: './empanel.component.html',
+  styleUrls: ['./empanel.component.scss']
+})
+export class EmpanelComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+```
+
+The template .html:
+
+```html
+<div class="panel">
+  <h3>My Panel</h3>
+  <div>
+    <ng-content></ng-content>
+  </div>
+</div>
+```
+
+The scss so we can better see the effect on the screen:
+
+```css
+.panel {
+  & > h3 {
+    box-sizing: border-box;
+    margin-bottom: 0;
+    color: white;
+    background: #8ca800;
+    padding: 10px;
+  }
+
+  & > div {
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #eeeeee;
+  }
+}
+```
+
+Now, the usage on the hosting component
+
+```html
+<lib-empanel>
+  <p>
+    The quick brown fox jumps over the head of the lazy dog.
+  </p>
+  <p>
+    This is another paragraph.
+  </p>
+</lib-empanel>
+```
+
+The most important player here is the `<ng-content>` tag in the component's markup. It serves as a placeholder for the contents of the component once that component
+is plopped onto a host component. In our case, that `<ng-content>` is replaced by the two paragraphs inside the `<lib-empanel>` tag.
+
+## Adding a Customizable Title
+
+The following isn't really about wrapper components, however it's a good idea to include it here because it's a common corequisite of creating wrapper components.
+
+We need a way for the component's title to be changed upon plopping the markup onto a host component. That is done with the `@Input()`. The new .ts file is now this:
+
+```javascript
+import { Component, OnInit, Input } from '@angular/core';
+
+@Component({
+  selector: 'lib-empanel',
+  templateUrl: './empanel.component.html',
+  styleUrls: ['./empanel.component.scss']
+})
+export class EmpanelComponent implements OnInit {
+
+  @Input() title: string;
+
+  constructor() { }
+
+  ngOnInit() {
+    if (!this.title)
+      this.title = "Default Heading"
+  }
+}
+```
+
+Modified template markup:
+
+```html
+<div class="panel">
+  <h3>{{ title }}</h3>
+  <div>
+    <ng-content></ng-content>
+  </div>
+</div>
+```
+
+Usage:
+
+```html
+<lib-empanel [title]="'Two Paragraphs'">
+  <p>
+    The quick brown fox jumps over the head of the lazy dog.
+  </p>
+  <p>
+    This is another paragraph.
+  </p>
+</lib-empanel>
+```
+
+I'm not going into detail on what `@Input` is and how it works, since this article is really about wrapper components.
+
+## Next Steps
+
+We would like to use this component in a structural directive. We would like the structural directive to pass its template ref to this component, and then plop
+that component onto the screen. This will result in less coding on a hosting component!
