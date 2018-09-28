@@ -15,4 +15,3 @@ be applied to any component or native element.
 the component or native element I'm applying my structural directive to.
 * I should inject `ViewContainerRef` which is the governing object that decides how to ultimately build (or not build) what the user sees. I actually hand over
 the `TemplateRef<any>` to `ViewContainerRef` if I need to show the hosted component or native element, based on some logic.
-* I should inject `Renderer2` if I needed to build html in Angular code in a similar fashion to plain JavaScript. Ultimately, 
