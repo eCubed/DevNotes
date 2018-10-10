@@ -171,6 +171,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{99F9
 		2018-09-28-02-wrapper-components.md = 2018-09-28-02-wrapper-components.md
 		2018-09-28-03-structural-directive-wrapper.md = 2018-09-28-03-structural-directive-wrapper.md
 		2018-10-01-01-tooltip-with-attribute-directive.md = 2018-10-01-01-tooltip-with-attribute-directive.md
+		2018-10-10-01-angular-animations.md = 2018-10-10-01-angular-animations.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instruction", "Instruction", "{0E0CE537-FA3C-41DF-9072-5DCD16F625BB}"
