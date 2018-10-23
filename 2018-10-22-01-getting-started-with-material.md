@@ -89,7 +89,7 @@ both the `imports` and `exports` arrays of `MaterialModule` so that they become 
 
 To see which components and widgets are available, we need to go to the [official documentation](https://material.angular.io/components/categories), then
 choose a control or widget first (left-hand-side menu), then select the `API` tab for the control or widget we selected. The `import` statement will be
-listed first.
+listed first, which contains the name of the module we need to import.
 
 We will need to refer back to this documentation to know how to properly markup Angular Material components - it's not exactly straight-forward or obvious.
 We'll see some html tags prefixed with `mat-` which we know are from Material. There are also directives we'll need to pay close attention to. We will
@@ -101,5 +101,8 @@ We will not go through each Material component here, even some of the most commo
 For now, we need to know that we pick out component and widget Angular Material modules, import them, and then register them to the `imports` and `exports`
 array of our `MaterialModule`, and once done, we can plop down their corresponding markups in component code.
 
+## Next Steps
 
+Let's start learning some of the basics of Angular Material. We will using Material for the basic input controls instead of the plain html input controls. We will
+later learn how to use some of the more sophisticated widgets and leverage their APIs in TypeScript.
 
