@@ -145,8 +145,16 @@ One, as already mentioned, is that the navigation links are duplicated in the me
 enough main navigation items anyway, so maintaining-synching two very small nearly identical lists is a far less of a nightmare than trying
 to optimize the system to just use one list.
 
-Since there are proprietary tags and directives, our markup may seem very unclean to front-end purists. Well, we're working in Angular, and
-yes, these very minute "violations", if they will, mean easier and faster development with less code to write and look at.
+Perhaps the largest "violation", per hard-core front-end purists, is we are putting into markup attributes and their values that specify
+physical appearance, for example, `color="primary"`, or instructions that determine whether an element should show up or not, for example,
+`fxHide.gt-xs`. Supposedly, any hint of physical features, even in how we name css classes, don't belong in HTML markup, because HTML markup
+is supposed to be about content only. However, these "violations" are fairly small in terms of number of characters, but their effects are
+extremely helpful because we wouldn't need to maintain so much CSS code and sometimes, even Typescript code.
+
+Another "violation" is that we introduce an html element with no content whose sole purpose is to aid in layout - the `<span fxFlex>`. We get
+that. Floating elements is cumbersome, difficult, and unpredictable. We'd have to perform clearing tricks in CSS files, and as we would need to
+put clearing-trick CSS all over the place, it's far easier to just introduce a new empty html element to aid in layout. Also, this is NOT
+as hideous as multiple levels of nesting html elements like we used to do 15 years ago to achieve rounded corners.
 
 ## Next Steps
 

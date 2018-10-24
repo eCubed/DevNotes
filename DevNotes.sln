@@ -210,7 +210,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{381BED6E-1D5C-4BCA-9D89-4DEAE3048963}"
 	ProjectSection(SolutionItems) = preProject
 		2018-10-22-01-getting-started-with-material.md = 2018-10-22-01-getting-started-with-material.md
-		2018-10-23-01-material-and-flex-layout.md = 2018-10-23-01-material-and-flex-layout.md
+		2018-10-23-01-material-and-flex-layout-navigation.md = 2018-10-23-01-material-and-flex-layout-navigation.md
+		2018-10-24-01-material-and-flex-layout-data-items.md = 2018-10-24-01-material-and-flex-layout-data-items.md
 	EndProjectSection
 EndProject
 Global
