@@ -15,9 +15,11 @@ Another special case with objects is that some of them have arrays - both of pri
 with building `FormGroups` and `FormControls`, but how would be build a form descriptor for a model that requires an array of an object? Would it be possible to
 validate against the array, like, it cannot exceed a certain amount? Will we need to write our own validators for arrays?
 
-What if the object has a complex-enough property that it warrants for it to have its own component, and we still want that component to act like a Reactive Form?
+What if the object has a complex-enough property that it warrants for that property to have its own component, and we still want that component to act like a Reactive Form?
 I don't think this component can have a form tag inside itself because this would mean that we would be nesting form tags, which is not allowed. Wouldn't we need
 to make the component know how to first detect its own validity and then let some parent know somehow when it's in an invalid state? How would we pull this!!!?
 I'm currently checking out [this article](https://itnext.io/partial-reactive-form-with-angular-components-443ca06d8419) to see if it will answer my questions.
-The key is to pass a `FormGroup` to the child component, and then have the child component manipulate it? And supposedly, the parent component's own `FormGroup`
-would automatically hear anything about validation from the child components.
+According to this article, the key is to pass a `FormGroup` to the child component, and then have the child component manipulate it? And supposedly, the parent
+component's own `FormGroup` would automatically hear anything about validation from the child components's form group?
+
+Here is another take on [nested reactive components](https://medium.com/spektrakel-blog/angular2-building-nested-reactive-forms-7978ecd145e4).

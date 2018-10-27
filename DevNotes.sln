@@ -215,6 +215,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{381B
 		2018-10-24-02-material-and-flex-layout-forms.md = 2018-10-24-02-material-and-flex-layout-forms.md
 		2018-10-26-01-material-and-intro-to-reactive-forms.md = 2018-10-26-01-material-and-intro-to-reactive-forms.md
 		2018-10-26-02-material-and-reactive-forms-intro-validation.md = 2018-10-26-02-material-and-reactive-forms-intro-validation.md
+		2018-10-26-03-material-and-reactive-forms-reflection.md = 2018-10-26-03-material-and-reactive-forms-reflection.md
+		2018-10-27-01-material-and-reactive-forms-partial-forms.md = 2018-10-27-01-material-and-reactive-forms-partial-forms.md
 	EndProjectSection
 EndProject
 Global
