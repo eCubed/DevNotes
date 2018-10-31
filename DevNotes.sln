@@ -224,6 +224,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{381B
 		2018-10-30-01-material-and-reactive-forms-custom-validators.md = 2018-10-30-01-material-and-reactive-forms-custom-validators.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Non-Relational Databases", "Non-Relational Databases", "{44E389BA-0AA0-498C-8929-D0ED2B136296}"
+	ProjectSection(SolutionItems) = preProject
+		2018-10-30-01-nrdbs-initial-reflection.md = 2018-10-30-01-nrdbs-initial-reflection.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
