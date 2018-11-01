@@ -223,6 +223,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{381B
 		2018-10-29-03-material-and-reactive-forms-formarray-validation.md = 2018-10-29-03-material-and-reactive-forms-formarray-validation.md
 		2018-10-30-01-material-and-reactive-forms-custom-validators.md = 2018-10-30-01-material-and-reactive-forms-custom-validators.md
 		2018-10-31-01-material-and-reactive-forms-async-validators.md = 2018-10-31-01-material-and-reactive-forms-async-validators.md
+		2018-11-01-01-material-and-reactive-forms-reflection.md = 2018-11-01-01-material-and-reactive-forms-reflection.md
 	EndProjectSection
 EndProject
 Global
