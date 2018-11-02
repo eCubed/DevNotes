@@ -229,6 +229,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Non-Relational Databases", "Non-Relational Databases", "{8F2B1BA4-576C-4409-AA8A-E7DE6AF73E6C}"
 	ProjectSection(SolutionItems) = preProject
 		2018-10-30-01-nrdbs-initial-reflection.md = 2018-10-30-01-nrdbs-initial-reflection.md
+		2018-11-02-01-nrdbs-focus-on-data.md = 2018-11-02-01-nrdbs-focus-on-data.md
 	EndProjectSection
 EndProject
 Global
