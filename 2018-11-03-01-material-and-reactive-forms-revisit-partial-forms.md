@@ -125,20 +125,54 @@ object to the form from the top-level.
 
 ## Preloading an Object onto the Top-Level Reactive Form
 
-Back when we worked with template-driven forms with nested components, all we needed to do was pass complex properties as `@Input` to those sub-components,
-and so on until we reach the child-most component. We automatically saw the components and subcomponents fill up. Unfortunately, filling a component with
-complex objects isn't as easy when working with reactive forms. While we can bind objects and their properties to the UI in our markup with template-driven forms, 
-we actually associate basic input elements with a `FormControl` and we pass `FormGroup`s as `@Input` to partial reactive forms. Since reactive form
-objects (`FormGroup`, `FormArray`, `FormControl`, etc.) are not our POJOs, be forewarned:
+Suppose we received an object (POJO) from an API call. We have already created the form group as we have above, and we now have to fill it from the top
+level.
 
-**Filling a reactive form with object property values will require manual coding.**
+```javascript
+  ngOnInit() {
 
-We initialized the form by manually building the `FormGroup` object, filling it with default initial values for each `FormControl`. We will have to
-also manually build the top-level `FormGroup` in somewhat of a similar fashion for "edit mode", that is, when we want to fill the form with values from
-a POJO we may have received from an API call, but we will need to manually pick out properties and sub-properties of that POJO to initialize each `FormControl`.
-This sounds quite tedious and we will need to do this in every complex form. This is a fairly huge price to pay in terms of development time and effort,
-but it makes validation so much easier, which is a far more difficult feat to pull with template-driven forms.
-...
+    // This code is to set up the form for create mode!!!
+    this.registration = new FormGroup({
+      firstName: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(20)
+      ])),
+      lastName: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      address: AddressFormComponent.createAddress('','','','','')
+    });
+
+    // This code is to set up an object
+    let regInfo = {
+      firstName: 'Bill',
+      lastName: 'Smith',
+      email: 'billsmith@gmail.com',
+      address: {
+        address1: '15 Elmore Av',
+        city: 'Davenport',
+        region: 'IA',
+        postalCode: '52807'
+      }
+    }
+
+    // Now, how do we fill that reg form with the data on the POJO?
+
+    this.registration.patchValue(regInfo);
+  }
+```
+We first build an object (since this is just a demo, but the data would really come from an API GET response), `regInfo`. We then get a hold of the
+top-level `FormGroup`, `registration`, and call upon the `patchValue()` function and pass to it our POJO, `regInfo`. This, in effect, will automatically 
+fill the values of the form elements. Notice that the property names of our POJO match the `FormControl` names that we specified when we initially built the
+`FormGroup`. This is crucial so that Reactive Forms knows which values to put in the right input elements.
+
+There is another function similar to `patchValue()` called `setValue()` that also takes in a POJO. `patchValue` is said to be "more lenient" because
+it allows us to specify an incomplete set of properties of the POJO. For instance, our `regInfo`'s `address` object didn't specify `address2`. Passing
+`regInfo` to `patchValue()` works because `patchValue()` will only modify the values we specify. Passing `regInfo` into `setValue()`, however, will
+result in an error because it requires that the POJO specifies properties for every single `FormControl` declared in the original `FormGroup`. We will
+favor `patchValue()` because the API may return an object that does not specify a property if that property's value is null, false, or a default value.
+
+## Loading Array Items into a FormGroup
 
 
 
