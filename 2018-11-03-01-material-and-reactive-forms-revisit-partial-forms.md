@@ -164,7 +164,9 @@ level.
 We first build an object (since this is just a demo, but the data would really come from an API GET response), `regInfo`. We then get a hold of the
 top-level `FormGroup`, `registration`, and call upon the `patchValue()` function and pass to it our POJO, `regInfo`. This, in effect, will automatically 
 fill the values of the form elements. Notice that the property names of our POJO match the `FormControl` names that we specified when we initially built the
-`FormGroup`. This is crucial so that Reactive Forms knows which values to put in the right input elements.
+`FormGroup`. This is crucial so that Reactive Forms knows which values to put in the right input elements. The complex property of `regInfo`, `address`,
+will be reflected in the UI because we specifed `address` in the `FormGroup` with `addres: AddressFormComponent.CreateAddress('','','','','')`.
+Had we not instantiated a `FormGroup` for `address`, we wouldn't get in the UI the values the properties of `regInfo.address`.
 
 There is another function similar to `patchValue()` called `setValue()` that also takes in a POJO. `patchValue` is said to be "more lenient" because
 it allows us to specify an incomplete set of properties of the POJO. For instance, our `regInfo`'s `address` object didn't specify `address2`. Passing
@@ -172,7 +174,11 @@ it allows us to specify an incomplete set of properties of the POJO. For instanc
 result in an error because it requires that the POJO specifies properties for every single `FormControl` declared in the original `FormGroup`. We will
 favor `patchValue()` because the API may return an object that does not specify a property if that property's value is null, false, or a default value.
 
-## Loading Array Items into a FormGroup
+## Next Steps
+
+We will now try to load a top-level object with a property that is an array.
+
+
 
 
 
