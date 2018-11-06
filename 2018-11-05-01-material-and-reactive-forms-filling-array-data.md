@@ -157,5 +157,11 @@ The next thing we'll need to do is instantiate an array of forms: `let toDoItemF
 actually create a new instance of a `FormArray`.
 
 One might notice why we specify an empty `items` `FormArray` in the initial top-level `FormGroup` instantiation if we would overwrite it anyway with `FormGroup.setControl(...)`.
+The reason for this is this very form is exactly the same one we would use when creating a new record or editing something that already exists. Note that the code to fill the
+top-level `FormGroup` would usually be put in a `.subscribe()` callback function, including explicitly filling the `FormArray`.
+
+Note that at this time, there is no better way to fill a `FormArray` than explicitly building each `FormGroup` off each item, and then adding it to the `FormArray`.
+
+
 
 
