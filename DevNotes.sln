@@ -242,6 +242,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Practices", "Practices", "{25E0EFC4-8BAB-4FC7-B590-C65B4EDA5632}"
 	ProjectSection(SolutionItems) = preProject
 		2018-11-07-01-interface-di.md = 2018-11-07-01-interface-di.md
+		2018-11-08-01-mocking-apis.md = 2018-11-08-01-mocking-apis.md
 	EndProjectSection
 EndProject
 Global
