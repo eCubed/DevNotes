@@ -239,6 +239,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rxjs", "Rxjs", "{44926DAD-2
 		2018-11-07-01-rxjs-initial-reflections.md = 2018-11-07-01-rxjs-initial-reflections.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Practices", "Practices", "{25E0EFC4-8BAB-4FC7-B590-C65B4EDA5632}"
+	ProjectSection(SolutionItems) = preProject
+		2018-11-07-01-interface-di.md = 2018-11-07-01-interface-di.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -265,6 +270,7 @@ Global
 		{AEF42D28-6248-4CD0-8B64-0FAB66E0EAC3} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 		{381BED6E-1D5C-4BCA-9D89-4DEAE3048963} = {AEF42D28-6248-4CD0-8B64-0FAB66E0EAC3}
 		{44926DAD-21AC-4D9C-AA1C-8E06DF43FA4B} = {C5551210-F907-4F33-BD66-81C03BCEE244}
+		{25E0EFC4-8BAB-4FC7-B590-C65B4EDA5632} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
