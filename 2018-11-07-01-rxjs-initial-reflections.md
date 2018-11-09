@@ -2,35 +2,28 @@
 
 I'll be honest - I only know of rxjs because I needed to touch it a little bit when I make http calls from an Angular application. All I know that the http functions
 of `@angular/common/http`'s `HttpClient` return an `Observable` that could be *subscribed* to by components, and it is through the subscription that a component
-obtains the response of the http call. I also know that when the component's life cycle end, we need to explicitly unsubscribe any `Observable` we subscribed to, in
+obtains the response of the http call. I also know that when the component's life cycle ends, we need to explicitly unsubscribe any `Observable` we subscribed to, in
 order to prevent memory leaks.
 
-So far, I use Rxjs just to be able to consume a web API response so I can display information on the screen. I know there's more to it than just being able to perform
-CRUD!
-
 Upon reading a few blogs and tutorials regarding Rxjs, I gather that it is a system that lets some working unit "broadcast" the fact that something important happened
-from within itself, and that other parts of the app *can* listen for that happening, and obtain information about what happened. Now, these *listeners* will always
-hear about another one of the same happening some time in the future, but maybe with updated information.
+from within itself, and that other parts of the app *can* listen for that happening, and obtain information about what happened. These listeners *subscribe* to the happening
+once and only once. A part of a subscription is a function that would execute everytime the broadcaster issues a happening, and subsequent happenings may have updated data.
+In that function, the listener may do anything it sees fit depending of what it hears from the broadcast.
 
-Now, that was somewhat in vague general terms. Let's come up with a trivial example first. Suppose that there is some sort of worker that increments an integer every 10
-seconds. It would want to broadcast to the rest of the app when the number becomes evenly divisible by 10, and also broadcast that very integer when divisibility by 10
-happens. Suppose that on the screen, there are 5 components that want to display this number in each of their unique visual ways. Each of those 5 components would need to
-listen, or *subscribe* to that "divisible-by-10" worker. When it's all set up, each of those 5 components will update their displays simultaneously, exactly that worker
-broadcasted whenever its internal number because evenly divisible by 10.
+One good example of `rxjs` use beyond `HttpClient` would be a service that detects the screen width continuously. For every change in width pixel value, it determines if 
+the size is small, medium, or large, and would only broadcast when the width changes from one of those sizes to another. Subscribing components would then hear small, medium, 
+or large, from the service and can do whatever they need to do depending on which size they get at a particular time. A practical use for knowing the size in real time is to 
+be able to show and hide elements, or apply certain CSS classes depending on the width size of the browser window. This would be very useful for reactive apps.
 
-A more practical example would be a worker that detects the screen width continuously. For every change in width pixel value, it determines if the size is small, medium,
-or large, and would only broadcast when the width changes from one of those sizes to another. Subscribing components would then hear small, medium, or large, from this
-worker, and can do whatever they need to do depending on which size they get at a particular time. A practical use for knowing the size in real time is to be able to show
-and hide elements, or apply certain CSS classes depending on the width size of the browser window.
+The main principle of `rxjs` is for subscribers to receive a continuous stream of ever-changing data. It's not "continuous" in the sense that a subscriber *must* hear something
+from the broadcaster every nanosecond. It's "continuous" in the sense that while subscribed, it will bee *continuously alert* to receive broadcasts with updated data multiple times
+at some times in the future. We see this with our width-detection service, where subscribers would be alerted whenever the browser's width crosses a size threshhold, and will
+continue to listen and react accordingly as we resize the width back and forth.
 
-So, practically, subscribers will continue to hear from the broadcaster multiple times throughout the lifetime of their app, and this concept is referred to as listening
-for continuous change over time, which is the central principle of Rxjs.
+It is quite interesting to note, though, that the continuous intention of rxjs is used for API calls, because when we make an API call, we're only going to hear a response once
+and once only. When we call `HttpClient.get()`, we make a remote call, and only obtain the data once via subscription. Yes, subscribers of `HttpClient` CRUD functions will
+still sit there, waiting for the next server response, which won't happen. The continuous philosophy of `rxjs` would make more sense for connecting to a an actual continuous service
+like sockets. We connect to a socket once, and as long as we're connected, we can hear for updates multiple times over time. 
 
-The divisible-by-10 and width detector examples I mentioned follow that main principle, because the number and size change over time, and we've got components listening for
-them continuously. It is quite perplexing and interesting to note that the "continuous" principle of Rxjs seems to conflict with calling an external web API. By nature, an
-HTTP request (`httpClient.get()`, for example) happens once, and we hear from it once. It's not like we make the call `httpClient.get()`, and with that one call, and one
-subscription, we would hear from the server multiple times in the near future with updated data. If we want to get updated data, we *explicitly* call `httpClient.get()`
-again, subscribe to it, and get the new data from that subscription. So, it doesn't seem to make sense that the development team uses a subscription architecture for http
-calls because the notion of subscription implies that with that one subscription, we'll hear from the broadcaster multiple times. It turns out that there are a few other
-things that we may be able to do with subscriptions and observables besides receiving updated data, that would make sense in one-and-done situations like calling an API.
-We'll explore those in this series.
+There is probably a way, or maybe not, to make a single `HttpClient` CRUD subscription to be actually continuous, we don't know. If not, then there probably are other reasons
+why we would want to implement a continuous subscription mechanism to something that is by nature, one-and-done like web API calls.
