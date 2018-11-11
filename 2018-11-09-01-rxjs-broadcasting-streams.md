@@ -173,6 +173,69 @@ but if the GET request generates a log at the server, we would get duplicate log
 records or duplicate files.
 
 `Observable`s seem pointless then if it will process for each subscriber, and we only want one processing that all subscribers will hear. That's like
-a TV station airing the same show over and over for every TV tuned to that station at that time - not viable. So far, a plain `Observable` is good if
+a TV station airing the same show over and over for every TV tuned to that channel at that time - not viable. So far, a plain `Observable` is good if
 we know for sure that there will be only one subscriber. So, is there a way to broadcast once for all subscribers? Yes.
+
+## Subjects
+
+Subjects are a special kind of `Observable` that would put out one broadcast and multiple subscribers would hear *that very same one* broadcast. This is the
+more expected behavior we would want.
+
+```javascript
+import { Component, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+
+@Component({
+  ...
+})
+export class ObservablesStudyComponent implements OnInit {
+
+  constructor(
+    private httpClient: HttpClient
+  ) { }
+
+  ngOnInit() {  
+
+    let subject$ = new Subject<string>();
+
+    subject$.subscribe(message => {
+      console.log(`Subscriber 1 receives: ${message}`);
+    });
+
+    subject$.subscribe(message => {
+      console.log(`Subscriber 2 receives: ${message}`);
+    });
+
+    subject$.next((new Date()).getTime().toString());
+  }
+}
+```
+
+First, we instantiate a `Subject<string>`, since we want the data to be broadcasted to be a string. At this point, we have not yet set a value for what we
+would want the `Subject` to broadcast.
+
+We then go ahead and create two subscriptions. Finally, we broadcast a message with `subject$.next(message)`. In this case, we want to broadcast the current
+timestamp, which `(new Date()).getTime().toString()` would get us.
+
+When we run the page right now, we will receive the following output, or one similar to this:
+
+```
+Subscriber 1 receives: 1541905542958
+Subscriber 2 receives: 1541905542958
+```
+
+We know that there was only one broadcast made that the two subscribers heard. Had this been an actual `Observable`, we would get two different time stamps,
+which means that there were actually two broadcasts, one for each subscriber.
+
+Another thing of interest to note with `Subject`s that we could not do with regular `Observable`s is to directly update the broadcast message with `.next()`.
+A `Subject` *has* the function `.next()`, but an `Observable` *does not*. With `Observables`, we could only call `next()` from a function we would need
+to pass to its constructor as we've done above.
+
+Since `Subject`s possess the behavior we want, again, broadcast once, hear that same broadcast in multiple subscriptions, we may wonder why the dev team at
+Angular didn't implement a `Subject` for `HttpClient` CRUD functions. Those functions return an observable, and if subscribed to *n* times, there would
+also be *n* http requests made, one for each of those subscriptions. So, what would we need to do in order to be able to end up calling an `HttpClient`
+CRUD function, with only one resulting http request, but be able to subscribe to it multiple times? TBD...
+
+
+
 
