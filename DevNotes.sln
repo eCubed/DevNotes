@@ -239,6 +239,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rxjs", "Rxjs", "{44926DAD-2
 		2018-11-07-01-rxjs-initial-reflections.md = 2018-11-07-01-rxjs-initial-reflections.md
 		2018-11-09-01-rxjs-broadcasting-streams.md = 2018-11-09-01-rxjs-broadcasting-streams.md
 		2018-11-13-01-rxjs-observables-on-services.md = 2018-11-13-01-rxjs-observables-on-services.md
+		2018-11-13-02-rxjs-browser-resize-detector.md = 2018-11-13-02-rxjs-browser-resize-detector.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Practices", "Practices", "{25E0EFC4-8BAB-4FC7-B590-C65B4EDA5632}"
