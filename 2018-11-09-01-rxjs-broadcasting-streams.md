@@ -234,7 +234,58 @@ to pass to its constructor as we've done above.
 Since `Subject`s possess the behavior we want, again, broadcast once, hear that same broadcast in multiple subscriptions, we may wonder why the dev team at
 Angular didn't implement a `Subject` for `HttpClient` CRUD functions. Those functions return an observable, and if subscribed to *n* times, there would
 also be *n* http requests made, one for each of those subscriptions. So, what would we need to do in order to be able to end up calling an `HttpClient`
-CRUD function, with only one resulting http request, but be able to subscribe to it multiple times? TBD...
+CRUD function, with only one resulting http request, but be able to subscribe to it multiple times?
+
+## Ensuring Http Calls are Executed Once When There are Multiple Subscribers
+
+There is no sure way to subscribe multiple times to a plain `Observable` that results in only one http call. We will need to make the following workaround:
+
+We will *not* have clients subscribe to the `Observable` directly. Instead, we will create a `Subject` that clients will subscribe to multiple times. The single,
+direct subscription to the `Observable` isn't considered a client subscription; it is where we'll call `Subject.next` and feed to it the data obtained from the
+`Observable`'s network call:
+
+```javascript
+export class ObservablesStudyComponent implements OnInit {
+
+  posts$: Subject<any> = new Subject<any>();
+
+  constructor(
+    private httpClient: HttpClient
+  ) { }
+
+  ngOnInit() {
+
+    this.httpClient.get('https://jsonplaceholder.typicode.com/posts/1')
+      .subscribe(data => this.posts$.next(data));
+
+    this.posts$.subscribe(data => {
+      console.log(`Data received from subscriber 1: ${JSON.stringify(data)}`);
+    });
+
+    this.posts$.subscribe(data => {
+      console.log(`Data received from subscriber 2: ${JSON.stringify(data)}`);
+    });
+  }
+}
+```
+
+If we look in our browser's console output, we will see the following result:
+
+```
+XHR GET https://jsonplaceholder.typicode.com/posts/1
+
+Data received from subscriber 1: {"userId":1,"id":1,...}
+Data received from subscriber 2: {"userId":1,"id":1,...}
+```
+
+We can see that both subscriptions heard the single broadcast. Note that clients subscribed to `posts$`, which is a `Subject`, not directly to the `Observable`.
+
+## Next Steps
+
+We've coded everything in-component. In reality, we will want to put http calls in services so that components will only need to be responsible for subscription and obtaining
+data. When we transfer http calls into services, there are a few things we'll need to consider. Of course, we'll want multiple subscriptions to the same `Observable` but ensure
+only 1 http call will be made for all those subscriptions. We've discovered how to work around that by exposing a `Subject` instead. However, exposing a `Subject` would give
+the client the ability to manipulate it by explicitly calling `.next()`, which would yield wrong results. We'll discuss this in a near-future writeup.
 
 
 
