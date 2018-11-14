@@ -183,4 +183,239 @@ However, if we move to a different page *that doesn't even inject* our service, 
 of unnecessary work for our app to perform, and if we've got enough subscriptions from many components and not clean up or unsubscribe, we could really slow down our
 app. This phenomenon is called memory leak.
 
-To be continued...
+Let us start with our service and clean up any dangling subscriptions. We have in the constructor two `fromEvent(..).subscribe(..)` calls. We will need to get a hold
+of the `Subscription` returned by `.subscribe(..)`, so we can later be able to unsubscribe it. Since unsubscribing is done in a different function, we will want to
+add `Subscription` properties to the service. We mark them with the `private` modifier because they're supposed to be internal only to our service.
+
+```javascript
+...
+import { Observable, Subject, Subscription, fromEvent } from 'rxjs';
+...
+
+export class ViewportWidthService {
+
+  ...
+
+  private sizeChanged$: Subject<string> = new Subject<string>();
+  private onWindowLoadSubscription: Subscription;
+  private onWindowResizeSubscription: Subscription;
+
+  constructor() {
+    this.onWindowLoadSubscription = fromEvent(window, 'load').subscribe(() => {
+      this.currentPixelWidth = window.innerWidth;
+      this.determineSize();
+    });
+
+    this.onWindowResizeSubscription = fromEvent(window, 'resize').subscribe(() => {
+      this.currentPixelWidth = window.innerWidth;
+      this.determineSize();
+    });
+  }
+```
+
+The next thing we'll need to do is to implement `OnDestroy`, which will require us to implement the function `ngOnDestroy()`. It is in this function that we will need
+to unsubscribe our subscription. The Angular runtime will automatically call `ngOnDestroy()` if we implement `OnDestroy`, when our services, directives, and components
+are automatically taken down. We won't cover lifecycle in this article, so if we desire, we can research when exactly `ngOnDestroy()` gets called.
+
+```javascript
+ngOnDestroy() {
+    if (this.onWindowLoadSubscription)
+        this.onWindowLoadSubscription.unsubscribe();
+
+    if (this.onWindowResizeSubscription)
+        this.onWindowResizeSubscription.unsubscribe();
+}
+```
+
+As a good and often necessary practice, we'll need to first check the existence of a `Subscription` before we can call unsubscribe. When our components get complex enough,
+it will be highly possible that we may *not* have subscribed to an `Observable` before `ngOnDestroy()` is called.
+
+Now, let's go to our component that injects our service. On the `ngOnInit()` function, there is a `Subscription` to `size$()` that isn't caught. We'll need to manage
+that.
+
+```javascript
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { ViewportWidthService } from '../../services/viewport-width.service';
+
+@Component({
+  selector: 'app-viewport-width-tester',
+  templateUrl: './viewport-width-tester.component.html',
+  styleUrls: ['./viewport-width-tester.component.scss']
+})
+export class ViewportWidthTesterComponent implements OnInit, OnDestroy {
+
+  private sizeSubscription: Subscription;
+
+  constructor(
+    private viewportWidthService: ViewportWidthService
+  ) { }
+
+  ngOnInit() {
+    this.sizeSubscription = this.viewportWidthService.size$().subscribe(size => {
+      console.log(`The size is ${size}`);
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.sizeSubscription)
+      this.sizeSubscription.unsubscribe();
+  }
+}
+```
+
+The procedure for setting up `Subscription`s so we can later unsubscribe them is very similar to how we managed `Subscription`s in our service. In fact, this is
+how we'll manage subscriptions in any component, service, and directives we'll write. We will need to:
+
+1. Always create a private `Subscription` property in the component, service, or directive for every `.subscribe()` call to an `Observable`.
+2. Catch the `Subscription` into the `Subscription` property we set up.
+3. Implement `OnDestroy` on the component, service, or directive. We will now need to implement the function `ngOnDestroy()`.
+4. On the `ngOnDestroy()`, for every `Subscription` property our class has, we'll need to check for its existence, and if it exists, we call unsubscribe.
+
+Henceforth, in anything we write, we'll need to unsubscribe all our `Subscription`s!
+
+## Problem When we Navigate to a Page that Injects Service
+
+So far, all is well - we hear from the `Observable` when the size of the browser changes. On full page load, we also hear about the size because from our service,
+we have also taken into account the `window` `load` event.
+
+Let us first catch the size from our subscription, store it to a variable in our component, and then display the value on the screen.
+
+```javascript
+export class ViewportWidthTesterComponent implements OnInit, OnDestroy {
+
+  private sizeSubscription: Subscription;
+  private size: string;
+
+  constructor(
+    private viewportWidthService: ViewportWidthService
+  ) { }
+
+  ngOnInit() {
+    this.sizeSubscription = this.viewportWidthService.size$().subscribe(size => {
+      this.size = size;
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.sizeSubscription)
+      this.sizeSubscription.unsubscribe();
+  }
+
+```html
+<p>
+  viewport-width-tester works. The size is {{ size }}
+</p>
+```
+
+If we fully reload the page, and then resize the browser, we'll see that the size will be displayed and updated as expected.
+
+Now, let's go to another route *in our application*. Let's then fully reload the application in our browser. Now, let's navigate back to our page that injects our service.
+If we look at the screen display, we will see that `{{ size }}` is undefined, resulting in an empty string display. What happened here? Since we fully loaded the page,
+a `window` `load` event actually happened, but *our service wasn't instantiated yet*, because that other route we were in *did not* inject our service in its constructor.
+So, if our service wasn't yet instantiated, then it could not have intercepted that `window` `load`. Now, when we navigated to the route that *does* inject our service,
+our service was instantiated, but by that time, there was *no `window` `load`* that happened. 
+
+There is a hack for this case. Upon instantiation of our service, its constructor is called, and at the constructor, before we listen for `load` and `resize`, we *already*
+have access to `window.innerWidth`. We'll now take the opportunity, first thing, in the constructor, to set `this.currentPixelWidth` to `window.innerWidth`, and
+then call `this.determineSize()`, which would fire off broadcasting. However, we need to wrap those two lines with `setTimeout`, and give a small delay value.
+
+```javascript
+export class ViewportWidthService implements OnDestroy {
+
+  private currentPixelWidth: number;
+
+  private sizeChanged$: Subject<string> = new Subject<string>();
+  private onWindowLoadSubscription: Subscription;
+  private onWindowResizeSubscription: Subscription;
+
+  constructor() {
+
+    setTimeout(() => {
+      this.currentPixelWidth = window.innerWidth;
+      this.determineSize();
+    }, 10);
+
+    this.onWindowLoadSubscription = fromEvent(window, 'load').subscribe(() => {
+      this.currentPixelWidth = window.innerWidth;
+      this.determineSize();
+    });
+
+    this.onWindowResizeSubscription = fromEvent(window, 'resize').subscribe(() => {
+      this.currentPixelWidth = window.innerWidth;
+      this.determineSize();
+    });
+  }
+```
+
+Now, let's save the code. Let's go to a route in our app that doesn't inject the service. Then, let's reload the page. Now, let's navigate back to the route that
+does inject the service. Upon navigating to this page, the service gets instantiated, and at the constructor, we would grab the `window.innerWidth`, and then
+fire off the broadcast with `this.determineSize`. For some odd reason, not delaying (or no wrapping with `setTimeout`) will not fire off the broadcast we want.
+
+There is another problem. Right where we are, on the page that injects our service, let's navigate away to another route still in our app. Let's navigate back. Now,
+our `{{ size }}` is empty again. What happened? Why didn't the code in our constructor run that accesses `window.innerWidth` without listening for `load` and
+`resize`? By this time, our services was *already instantiated*, so its constructor won't run again, and also, no `load` or `resize` happened, so there is no way
+for our service to broadcast a size change message. What is the solution for this?
+
+We will need to keep track of a `currentSize` property on our service, that is set at the same time as when we broadcast with `next`. We will make `currentSize`
+public because a component that injects our service will also need to *access* the `currentSize` *before* it subscribes to `size$()`! Let's start with our service:
+
+```javascript
+export class ViewportWidthService implements OnDestroy {
+
+  private currentPixelWidth: number;
+
+  private sizeChanged$: Subject<string> = new Subject<string>();
+  private onWindowLoadSubscription: Subscription;
+  private onWindowResizeSubscription: Subscription;
+
+  public currentSize: string;
+
+  ...
+
+  private determineSize() {
+
+    if (this.currentPixelWidth <= 400) {
+      this.currentSize = 'small';
+      this.sizeChanged$.next('small');
+    }
+    else if (this.currentPixelWidth >= 401 && this.currentPixelWidth <= 800) {
+      this.currentSize = 'medium';
+      this.sizeChanged$.next('medium');
+    }
+    else {
+      this.currentSize = 'large';
+      this.sizeChanged$.next('large');
+    }
+  }
+  ...
+}
+```
+
+Now, let's head onto the injecting component:
+
+```javascript
+export class ViewportWidthTesterComponent implements OnInit, OnDestroy {
+
+  private sizeSubscription: Subscription;
+  private size: string;
+
+  constructor(
+    private viewportWidthService: ViewportWidthService
+  ) { }
+
+  ngOnInit() {
+
+    this.size = this.viewportWidthService.currentSize;
+        
+    this.sizeSubscription = this.viewportWidthService.size$().subscribe(size => {
+      console.log(`The size is ${size}`);
+      this.size = size;
+    });
+  }
+```
+
+Now, if we go through our app, and refresh the page in different places, leave, return, etc., we will now always have access to the viewport width's current size.
+Now, at any moment, components that inject and subscribe to our service's `Observable`s, will always get a size, and can use that size for its own logic!
+
