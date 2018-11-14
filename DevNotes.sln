@@ -259,6 +259,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reactive Forms", "Reactive 
 		2018-11-14-reactive-forms-ph.md = 2018-11-14-reactive-forms-ph.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journals", "Journals", "{0E130F38-B872-4802-BF54-A75B53DA29F6}"
+	ProjectSection(SolutionItems) = preProject
+		2018-11-14-01-flex-layout-primer.md = 2018-11-14-01-flex-layout-primer.md
+		2018-11-14-02-flex-layout-basics.md = 2018-11-14-02-flex-layout-basics.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -288,6 +294,7 @@ Global
 		{25E0EFC4-8BAB-4FC7-B590-C65B4EDA5632} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 		{270C8777-A1C9-4E82-8FA6-08C7F9949FC0} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 		{8BF9E199-1C89-4830-8693-2430BE72F655} = {C5551210-F907-4F33-BD66-81C03BCEE244}
+		{0E130F38-B872-4802-BF54-A75B53DA29F6} = {270C8777-A1C9-4E82-8FA6-08C7F9949FC0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
