@@ -263,6 +263,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journals", "Journals", "{0E
 	ProjectSection(SolutionItems) = preProject
 		2018-11-14-01-flex-layout-primer.md = 2018-11-14-01-flex-layout-primer.md
 		2018-11-14-02-flex-layout-basics.md = 2018-11-14-02-flex-layout-basics.md
+		2018-11-14-03-flex-layout-children-distribution.md = 2018-11-14-03-flex-layout-children-distribution.md
 	EndProjectSection
 EndProject
 Global
