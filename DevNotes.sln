@@ -266,6 +266,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journals", "Journals", "{0E
 		2018-11-14-03-flex-layout-alignment.md = 2018-11-14-03-flex-layout-alignment.md
 		2018-11-15-01-flex-layout-children-widths.md = 2018-11-15-01-flex-layout-children-widths.md
 		2018-11-18-flex-layout-children-widths-with-gaps.md = 2018-11-18-flex-layout-children-widths-with-gaps.md
+		2018-11-19-01-flex-layout-nested-containers.md = 2018-11-19-01-flex-layout-nested-containers.md
 	EndProjectSection
 EndProject
 Global
