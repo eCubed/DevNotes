@@ -158,7 +158,12 @@ because main content's insides has more content?
 Let's run it again. Aha! The sidebar stretched to fill the height of the parent. This is an effect we've always wanted to have since we ditched tables for laying out
 pages! Those of us who battled with page layout as of CSS2 found this feat extremely difficult, if not, impossible to pull. One dreaded hack was to create a graphic,
 .. a GRAPHIC, that is so many pixels wide and 1 pixel high, with only two colors set it as a background image of the parent container (in our case, the content div),
-and `repeat-y`. But with Flex Layout, this feat is quite easy to pull and requires practically just a handful of characters typed in the markup.
+and `repeat-y`. Another dreadful hack was to explicitly fix the heights with Javascript, and perhaps worse yet, jQuery. But with Flex Layout, this feat is practically
+effortless to pull with just a few simple declarations in the markup!
 
 It is obvious that our mock page isn't complete and is very trivial. The styling is created only to demonstrate how a few Flex Layout decorations can achieve the
 desired placements and distributions of all of our containers.
+
+## Next Steps
+
+We will work off this page layout and make it responsive in the next article.
