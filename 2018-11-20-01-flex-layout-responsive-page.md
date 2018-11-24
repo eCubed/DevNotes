@@ -133,7 +133,76 @@ we get the desired effect.
 Now, we'll address showing and hiding elements depending on their width. The most popular use case for this is in the application's toolbar. Typically,
 we would hide the navigation on narrow widths, but show an "expand menu" icon instead.
 
-We'll need to fix our header first so that it contains actual sections.
+Let's first create the menu items in the links div:
+
+```html
+<div class="links" fxLayout="row" fxLayoutGap="10px">
+  <a href="#">Home</a>
+  <a href="#">Contact</a>
+  <a href="#">Services</a>
+</div>
+```
+
+We'll also style those anchor tags:
+
+```css
+.links {
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #ffd149;
+
+  & > a {
+    font-weight: bold;
+    text-decoration: none;    
+  }
+}
+```
+We want both the logo and links div to disappear when the width is less than medium. In order to do that, we'll use the `fxHide` directive on those divs.
+
+```html
+<div class="header" fxLayout="row" fxLayoutAlign="space-between">
+    <div class="logo" fxHide.lt-md>
+      ...
+    </div>
+    <div class="links" fxHide.lt-md fxLayout="row" fxLayoutGap="10px">
+      ...
+    </div>
+  </div>
+```
+
+We use `fxHide.lt-md` to indicate that the container should be hidden *when* the width is less than medium. If we resize our browser small enough, we
+will see that the logo and links divs disappeared. Let's NOT confuse `fxHide` with `*ngIf="false"` because they don't actually mean the same thing.
+With `*ngIf="false"`, it means that the element is *fully absent* from the DOM. With, `fxHide` the element that applies it *is still in* the DOM.
+It just gets a styling of `display: none`.
+
+Now, typically, when the viewport width is narrow and the logo and nav items disappear, a menu icon is supposed to show up instead. So, we'll add that
+div to the header div. We want that menu icon to hide when the width is greater than small, so it wouldn't show up if the width were medium or greater.
+We also want that menu item to align to the right.
+
+```html
+<div class="header" fxLayout="row" fxLayoutAlign="space-between" fxLayoutAlign.lt-md="end">
+  <div class="logo" fxHide.lt-md>
+    Logo
+  </div>
+  <div class="links" fxHide.lt-md fxLayout="row" fxLayoutGap="10px">
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+    <a href="#">Services</a>
+  </div>
+  <div class="menu-icon" fxHide.gt-sm>
+    Menu
+  </div>
+</div>
+```
+We now add the menu-icon div, and `fxHide.gt-sm` will hide it for medium and wider widths. In order to align the menu-icon div to the right, *only when*
+the viewport width is less than medium, we add another `fxLayoutAlign` declaration to the parent header - `fxLayoutAlign.lt-md="end"`, which will only
+apply when the width is small or less, when we have only the menu-item showing.
+
+## Managing Toggle on Click
+Now let's focus on the menu item. Yes, we get it to show up when the width is narrow, and it hides when the width is wider. But we should be able to click
+it and a menu should pop up. It should also be a toggle so that clicking it over and over again should show and hide the menu.
+
+
 
 
 
