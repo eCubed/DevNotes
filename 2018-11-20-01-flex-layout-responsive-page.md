@@ -199,10 +199,68 @@ the viewport width is less than medium, we add another `fxLayoutAlign` declarati
 apply when the width is small or less, when we have only the menu-item showing.
 
 ## Managing Toggle on Click
-Now let's focus on the menu item. Yes, we get it to show up when the width is narrow, and it hides when the width is wider. But we should be able to click
+Now let's focus on the menu icon. Yes, we get it to show up when the width is narrow, and it hides when the width is wider. But we should be able to click
 it and a menu should pop up. It should also be a toggle so that clicking it over and over again should show and hide the menu.
 
+Be forewarned that to pull this feat may feel quite hacky, but we'll go through each necessary piece.
+
+```html
+<div class="header" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between" fxLayoutAlign.lt-md="end">
+  <div class="logo" fxHide.lt-md>
+    Logo
+  </div>
+  <div class="links" fxHide.lt-md fxLayout="row" fxLayoutGap="10px">
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+    <a href="#">Services</a>
+  </div>
+  <div class="menu-icon" fxHide.gt-sm (click)="menuCanShow = !menuCanShow" >
+    Menu
+  </div>
+  <div class="narrow-links" fxHide.gt-sm [fxHide.lt-md]="!menuCanShow" fxLayout="column">
+    <a href="#">Home</a>
+    <a href="#">Contact</a>
+    <a href="#">Services</a>
+  </div>
+</div>
+```
+
+The first thing we've done is to set the `fxLayout` to column when the width is less than medium - `fxLayout.lt-md="column"`. This way, the menu icon and
+the popup menu will be stacked vertically.
+
+Notice that we have a "duplicate" of the links div placed below the menu-icon div. This might look redundant from the menu that shows up on wider widths. Indeed,
+it has the same links, but the Flex Layout directives are different. But first, let us discuss what makes the "narrow-links" div show and hide. At the menu-icon
+div, we have a `(click)` event where we simply toggle `menuCanShow`. This may be a little-known or forgotten Angular fact, but we can *just* introduce variables
+right in the template - we don't actually always have to declare them in component code. Our variable here is `menuCanShow`, which will be a boolean. We need to
+remember that a boolean's default value is false, which will be its value right when we just load the app, and we haven't yet clicked on the menu icon.
+
+On the narrow-links div, we first want it not to show up when the width is greater than small, so we set `fxHide.gt-sm`. *But* when the width is less than medium,
+we want to hide it when `menuCanShow` is false. Note the additional declaration `[fxHide.lt-md]="!menuCanShow"`. It has the square brackets. This is necessary
+because we're evaluating an expression, in this case, hide the div if the width is less than medium if `menuCanShow` is false.
+
+If we run the app now and we shrink the width of the browser, the logo and the regular menu will disappear. Only the menu-icon will show up. When we click the menu
+icon, it will show the narrow-links div. Clicking on it again will hide the narrow-links div.
+
+## fxHide vs. fxShow
+
+We have used the `fxHide` directive to hide elements under the desired conditions. Flex Layout also provides `fxShow`, which is the opposite of `fxHide` -
+show the element when the conditions call for it. We can use `fxShow` or `fxHide` depending on preference and/or what makes more sense at the moment. We used
+`[fxHide.lt-md]="!menuCanShow"` to hide an element if we're in a width less than medium, and if `menuCanShow` is false. The equivalent `fxShow` for that is
+`[fxShow.lt-md]="menuCanShow", which reads show the element if we're in a width less than medium, and `menuCanShow` is true. For some reason, though,
+the `fxShow` doesn't work - the in-markup-declared `menuCanShow` doesn't evaluate. So, to cure this, we'll use a double "not" which is equivalent to no
+"not": `[fxShow.lt-md]="!!menuCanShow"`.
 
 
+## Next Steps
 
+We have now been able to declare responsive layouts with specifying Flex Layout breakpoints on our Flex layout directives. We have seen that it is relatively a small
+amount of additional markup, is straightforward, and best of all, frees us from having to write messy and long CSS media queries. We also were able to hide
+divs via the directive `fxHide`, and show them with `fxShow`. We could animate elements as they show and hide, but that's outside the scope of layout.
 
+Flex Layout does provide us with some services, namely, the service that lets us listen in, in typescript code which breakpoint we're in. Why would we want to know in
+our logic which breakpoint we're in? Isn't it enough that we get to move, distribute, and show/hide elements as needed with breakpoint declarations on markup?
+When we have a lot of content on our page that comes from the responses of API calls, we can already decide which elements to show on narrower widths, which would
+display a minimal amount of information on the browser. This is beneficial to mobile users who might not want to see as much data in one glance on their narrow-width
+device than on a desktop. However, even when certain elements aren't shown on mobile devices, we actually still made those API calls, which would be considered as
+waste of bandwidth - why obtain data, possibly long articles, from an API call if we're not going to display it on mobile? We would like to know that if
+we're at a narrow-enough breakpoint, then maybe we *wouldn't even need* to call certain APIs! This will save on bandwidth.
