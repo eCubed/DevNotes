@@ -275,6 +275,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mocking", "Mocking", "{B953
 		2018-12-02-01-mocking-primer.md = 2018-12-02-01-mocking-primer.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Development Practices", "Development Practices", "{CE92278F-FBCF-4028-9846-BD523394A2D8}"
+	ProjectSection(SolutionItems) = preProject
+		2018-12-03-debug-mode-databases.md = 2018-12-03-debug-mode-databases.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -306,6 +311,7 @@ Global
 		{8BF9E199-1C89-4830-8693-2430BE72F655} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 		{0E130F38-B872-4802-BF54-A75B53DA29F6} = {270C8777-A1C9-4E82-8FA6-08C7F9949FC0}
 		{B953CEFB-5A8E-4F83-93B7-A2E284E28D3D} = {25E0EFC4-8BAB-4FC7-B590-C65B4EDA5632}
+		{CE92278F-FBCF-4028-9846-BD523394A2D8} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
