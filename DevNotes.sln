@@ -273,6 +273,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mocking", "Mocking", "{B953CEFB-5A8E-4F83-93B7-A2E284E28D3D}"
 	ProjectSection(SolutionItems) = preProject
 		2018-12-02-01-mocking-primer.md = 2018-12-02-01-mocking-primer.md
+		2018-12-06-01-mocking-service-contract.md = 2018-12-06-01-mocking-service-contract.md
+		2018-12-06-02-mocking-injecting-interface-types.md = 2018-12-06-02-mocking-injecting-interface-types.md
+		2018-12-06-03-mocking-environment-involvement.md = 2018-12-06-03-mocking-environment-involvement.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Development Practices", "Development Practices", "{CE92278F-FBCF-4028-9846-BD523394A2D8}"
