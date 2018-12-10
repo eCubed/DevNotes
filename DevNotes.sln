@@ -289,6 +289,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Proxy Servers", "Proxy Serv
 		2018-12-05-02-proxy-servers-creating-simple.md = 2018-12-05-02-proxy-servers-creating-simple.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment Providers", "Payment Providers", "{39FBC936-EB35-4761-A388-2C1F1237CA27}"
+	ProjectSection(SolutionItems) = preProject
+		2018-12-10-01-payment-providers-primer.md = 2018-12-10-01-payment-providers-primer.md
+		2018-12-10-02-payment-providers-paypal-rest-api.md = 2018-12-10-02-payment-providers-paypal-rest-api.md
+		2018-12-10-03-payment-providers-recurly.md = 2018-12-10-03-payment-providers-recurly.md
+		2018-12-10-04-payment-providers-stripe.md = 2018-12-10-04-payment-providers-stripe.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
