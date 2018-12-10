@@ -295,6 +295,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment Providers", "Paymen
 		2018-12-10-02-payment-providers-paypal-rest-api.md = 2018-12-10-02-payment-providers-paypal-rest-api.md
 		2018-12-10-03-payment-providers-recurly.md = 2018-12-10-03-payment-providers-recurly.md
 		2018-12-10-04-payment-providers-stripe.md = 2018-12-10-04-payment-providers-stripe.md
+		2018-12-10-05-payment-providers-braintree-direct.md = 2018-12-10-05-payment-providers-braintree-direct.md
 	EndProjectSection
 EndProject
 Global
