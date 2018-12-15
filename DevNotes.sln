@@ -59,7 +59,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Design Software", "Design S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Logging", "Logging", "{B947A5F1-6E94-48B5-99B9-E025F4E4C574}"
 	ProjectSection(SolutionItems) = preProject
-		00-logging-overview.md = 00-logging-overview.md
+		2018-12-15-logging-overview.md = 2018-12-15-logging-overview.md
+		2018-12-15-logging-web-app.md = 2018-12-15-logging-web-app.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Miscellaneous", "Miscellaneous", "{7BA433B0-A400-4701-A710-D2B7687BC15A}"
