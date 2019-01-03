@@ -61,13 +61,20 @@ look when it encounters import statements that refer to a package.
 
 ## Publishing the Library to npm
 
-If we haven't yet registered an account with npm, we would need to do so first, since publishing requires credentials. Once we've
-registered, we run the following commands in sequence:
+If we haven't yet registered an account with npm, we would need to do so first, since publishing requires credentials. 
+
+Once we've registered, we will need to log into npm from the command prompt or bash terminal:
+
+`npm login`
+
+We will be prompted for username and password. Note that keystrokes will not reflect on the screen for security.
+
+Then, we run the following commands in sequence:
 
 ```
-ng build @mystuff/first-library --prod
+ng build @mystuff/first-library --prod (we will only need to do this Angular CLI 6.0 and earlier. We can skip starting version 6.1+)
 cd dist/mystuff/first-library
-npm publish
+npm publish --access public
 ```
 
 It looks like the build command we issued during development, however, we have the `--prod` flag, which creates a more compact and
@@ -76,4 +83,10 @@ uglified package suitable for publishing to npm.
 Note that all existing compilations on `/dist` from development will be wiped out when we build to production. We should then not
 run build with the `--prod` flag while we are developing. We would need first to stop the development watching for changes.
 
+The `--access public` flag may be required if publishing results in an error due to the account not having permission to publish private
+packages. In some npm installations, the `--access`'s default value is private.
+
 Once publishing to npm succeeds, it is immediately available to can npm-install.
+
+Note: When making modifications to the projects (new features, fixes, etc.), we will want to publish to npm again. We will need to
+go to the library's package.json and raise the version number accordingly before publishing!
