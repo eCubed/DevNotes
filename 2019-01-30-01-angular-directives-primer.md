@@ -14,8 +14,10 @@ array.
 
 A *behavioral directive* does not actually add or remove the DOM of the component or element it applies to. Instead, it's designed to alter the behavior,
 hence, its name. Most likely, though, especially when we start learning how to make our own directives, the *behavior* is to alter the look of the
-element or component. A behavioral directive can also subscribe to services to receive continuously-changing data, and the ever-changing values
-returned from those services can be used to alter the appearance of whatever component or element it was applied.
+element or component.
+
+Both behavioral and strucutral directives can also subscribe to services to receive continuously-changing data, and the ever-changing values
+returned from those services can be used to alter the appearance, or create/destruct the DOM of whatever component or element it was applied.
 
 We will start with creating trivial behavioral directives, starting with those that don't take in values. We will later see how to properly create
 directives that take in attribute values.

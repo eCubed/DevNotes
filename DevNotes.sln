@@ -168,11 +168,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{99F9
 	ProjectSection(SolutionItems) = preProject
 		2018-09-11-01-angular-reboot.md = 2018-09-11-01-angular-reboot.md
 		2018-09-12-01-scss-reboot.md = 2018-09-12-01-scss-reboot.md
-		2018-09-25-01-angular-directives.md = 2018-09-25-01-angular-directives.md
-		2018-09-28-01-structural-directives-diving-in.md = 2018-09-28-01-structural-directives-diving-in.md
-		2018-09-28-02-wrapper-components.md = 2018-09-28-02-wrapper-components.md
-		2018-09-28-03-structural-directive-wrapper.md = 2018-09-28-03-structural-directive-wrapper.md
-		2018-10-01-01-tooltip-with-attribute-directive.md = 2018-10-01-01-tooltip-with-attribute-directive.md
 		2018-10-10-01-angular-animations.md = 2018-10-10-01-angular-animations.md
 	EndProjectSection
 EndProject
@@ -293,8 +288,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Proxy Servers", "Proxy Serv
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Directives", "Directives", "{69A90AC1-DBB8-45A0-A25B-186704F22FC4}"
 	ProjectSection(SolutionItems) = preProject
-		2019-01-30-angular-directives-behavioral-start.md = 2019-01-30-angular-directives-behavioral-start.md
-		2019-01-30-angular-directives-primer.md = 2019-01-30-angular-directives-primer.md
+		2018-09-25-01-angular-directives.md = 2018-09-25-01-angular-directives.md
+		2018-09-28-01-structural-directives-diving-in.md = 2018-09-28-01-structural-directives-diving-in.md
+		2018-09-28-02-wrapper-components.md = 2018-09-28-02-wrapper-components.md
+		2018-09-28-03-structural-directive-wrapper.md = 2018-09-28-03-structural-directive-wrapper.md
+		2018-10-01-01-tooltip-with-attribute-directive.md = 2018-10-01-01-tooltip-with-attribute-directive.md
+		2019-01-30-01-angular-directives-primer.md = 2019-01-30-01-angular-directives-primer.md
+		2019-01-30-02-angular-directives-behavioral-start.md = 2019-01-30-02-angular-directives-behavioral-start.md
 	EndProjectSection
 EndProject
 Global
