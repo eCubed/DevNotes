@@ -72,13 +72,13 @@ We will be prompted for username and password. Note that keystrokes will not ref
 Then, we run the following commands in sequence:
 
 ```
-ng build @mystuff/first-library --prod (we will only need to do this Angular CLI 6.0 and earlier. We can skip starting version 6.1+)
+ng build @mystuff/first-library --prod (we will only need to specify `--prod` flag for Angular CLI 6.0 and earlier. We can skip starting version 6.1+)
 cd dist/mystuff/first-library
 npm publish --access public
 ```
 
 It looks like the build command we issued during development, however, we have the `--prod` flag, which creates a more compact and
-uglified package suitable for publishing to npm. 
+uglified package suitable for publishing to npm. From Angular 6.1 onwards, we no longer need the `--prod` flag as it is now default.
 
 Note that all existing compilations on `/dist` from development will be wiped out when we build to production. We should then not
 run build with the `--prod` flag while we are developing. We would need first to stop the development watching for changes.

@@ -184,6 +184,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MySQL", "MySQL", "{CCD381DF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instructions", "Instructions", "{C6745E20-0B60-47A5-861E-F8BC15E3C1B1}"
 	ProjectSection(SolutionItems) = preProject
+		mysql-local-instance.md = mysql-local-instance.md
 		mysql-setup-on-linux.md = mysql-setup-on-linux.md
 		mysql-workbench-intro.md = mysql-workbench-intro.md
 	EndProjectSection
