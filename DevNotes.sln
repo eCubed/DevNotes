@@ -50,6 +50,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console Apps", "Console App
 		00-Console App Primer.md = 00-Console App Primer.md
 		00-Deploying a ConsoleApp.md = 00-Deploying a ConsoleApp.md
 		00-DI and the Console App.md = 00-DI and the Console App.md
+		2019-03-27-Console-Apps-User-Secrets.md = 2019-03-27-Console-Apps-User-Secrets.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Design Software", "Design Software", "{30B5294C-B3C4-4A89-B123-C09F6533C255}"
@@ -255,6 +256,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reactive Forms", "Reactive Forms", "{8BF9E199-1C89-4830-8693-2430BE72F655}"
 	ProjectSection(SolutionItems) = preProject
 		2018-11-14-reactive-forms-ph.md = 2018-11-14-reactive-forms-ph.md
+		2019-03-29-reactive-forms-intro-to-validation.md = 2019-03-29-reactive-forms-intro-to-validation.md
+		2019-03-29-reactive-forms-intro.md = 2019-03-29-reactive-forms-intro.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journals", "Journals", "{0E130F38-B872-4802-BF54-A75B53DA29F6}"
