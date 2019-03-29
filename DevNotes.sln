@@ -256,8 +256,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reactive Forms", "Reactive Forms", "{8BF9E199-1C89-4830-8693-2430BE72F655}"
 	ProjectSection(SolutionItems) = preProject
 		2018-11-14-reactive-forms-ph.md = 2018-11-14-reactive-forms-ph.md
-		2019-03-29-reactive-forms-intro-to-validation.md = 2019-03-29-reactive-forms-intro-to-validation.md
-		2019-03-29-reactive-forms-intro.md = 2019-03-29-reactive-forms-intro.md
+		2019-03-29-01-reactive-forms-intro.md = 2019-03-29-01-reactive-forms-intro.md
+		2019-03-29-02-reactive-forms-intro-to-validation.md = 2019-03-29-02-reactive-forms-intro-to-validation.md
+		2019-03-29-03-reactive-forms-first-reflection.md = 2019-03-29-03-reactive-forms-first-reflection.md
+		2019-03-29-04-reactive-forms-partial-forms.md = 2019-03-29-04-reactive-forms-partial-forms.md
+		2019-03-29-05-reactive-forms-arrays.md = 2019-03-29-05-reactive-forms-arrays.md
+		2019-03-29-06-reactive-forms-deleting-array-items.md = 2019-03-29-06-reactive-forms-deleting-array-items.md
+		2019-03-29-07-reactive-forms-reordering-array-items.md = 2019-03-29-07-reactive-forms-reordering-array-items.md
+		2019-03-29-08-reactive-forms-formarray-validation.md = 2019-03-29-08-reactive-forms-formarray-validation.md
+		2019-03-29-09-reactive-forms-custom-validation.md = 2019-03-29-09-reactive-forms-custom-validation.md
+		2019-03-29-10-reactive-forms-async-validators.md = 2019-03-29-10-reactive-forms-async-validators.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journals", "Journals", "{0E130F38-B872-4802-BF54-A75B53DA29F6}"
