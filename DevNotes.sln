@@ -266,6 +266,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Reactive Forms", "Reactive 
 		2019-03-29-08-reactive-forms-formarray-validation.md = 2019-03-29-08-reactive-forms-formarray-validation.md
 		2019-03-29-09-reactive-forms-custom-validation.md = 2019-03-29-09-reactive-forms-custom-validation.md
 		2019-03-29-10-reactive-forms-async-validators.md = 2019-03-29-10-reactive-forms-async-validators.md
+		2019-03-29-11-reactive-forms-reflection-2.md = 2019-03-29-11-reactive-forms-reflection-2.md
+		2019-03-29-12-reactive-forms-create-vs-edit.md = 2019-03-29-12-reactive-forms-create-vs-edit.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journals", "Journals", "{0E130F38-B872-4802-BF54-A75B53DA29F6}"
