@@ -11,12 +11,23 @@ need to install MySQL on our machines. MySQL Workbench is only a client that can
 We will need to go to [Download MySQL Installer](https://dev.mysql.com/downloads/installer/) to download MySQL. There are two options. It is sufficient to choose
 the smaller version, the "web-community" .msi file. Download and install.
 
+Warning: Only the installer will be installed when we run that downloaded program. Once that's installed, we will need to run it so that we
+can choose to install MySQL Server! When prompted, select the option `Standalone MySQL Server / Classing MySQL Replication`. Choose
+the defaults in the subsequent dialogs.
+
+Root Password: The installer will ask for a root password, and we can specify it at that point. We will need to remember the user name root
+and the password we just entered because we will need to use them to later connect to MySQL from Workbench.
+
 # Connecting to the Local MySQL Instance from Workbench
 
-We will nedd to add a MySQL connection using the Workbench UI. There are only a few options we'll need to set:
+We will nedd to add a MySQL connection in the Workbench UI. There are only a few options we'll need to set:
 
-Hostname will be 'localhost', and the port will be 3306. The username will be whatever username we want to use, and it will be up to us to decide whether
-we want to store the password in the [local machine] vault.
+Hostname will be 'localhost', and the port will be 3306.
+
+For the first time logging into MySQL, we will need to specify root as the user name and the password will be the one
+we specified during installation. When we get into MySQL, we can add a user account whose credentials we would use in a
+connection string later. We will need to give that account all of the roles so that we can connect to the database with
+a connection string from a native app later.
 
 # Connecting to a Local MySQL Instance Database/Schema from an App
 
