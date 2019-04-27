@@ -311,6 +311,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Directives", "Directives", 
 		2019-01-30-02-angular-directives-behavioral-start.md = 2019-01-30-02-angular-directives-behavioral-start.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosted Services", "Hosted Services", "{C6421150-C0CA-4B4D-9CD4-09EA67856B1F}"
+	ProjectSection(SolutionItems) = preProject
+		2019-04-25-hosted-services-web-app.md = 2019-04-25-hosted-services-web-app.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -345,6 +350,7 @@ Global
 		{CE92278F-FBCF-4028-9846-BD523394A2D8} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 		{1C17C21D-CBA4-4945-8E8C-311E8B44C177} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 		{69A90AC1-DBB8-45A0-A25B-186704F22FC4} = {C5551210-F907-4F33-BD66-81C03BCEE244}
+		{C6421150-C0CA-4B4D-9CD4-09EA67856B1F} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
