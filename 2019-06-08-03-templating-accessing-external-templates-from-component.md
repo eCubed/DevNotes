@@ -36,7 +36,7 @@ toggleExpand() {
 }
 ```
 
-We can already see that we will have to create the expanded state and the toggle function on *every* component that would have this panel. What if we have
+We can already see that we will have to create the expanded state and the toggle function on *every* piece of content we want to put in a panel. What if we have
 more panels in one component and we'd like to individually and *independently* maintain their expanded state? We would then need to create an expanded state
 for each one, and a toggle function for each one. This is a huge problem.
 
@@ -177,7 +177,7 @@ One question that arises is whether it is possible for a component to recognize 
 really apply to a simple panel component where we merely and always want to display the contents of the `<ng-template>`, but there are instances where we might
 want to show contents of one `<ng-template>` vs. another `<ng-template>`'s.
 
-Also, it is possible to let the host's markup get hold of certain values passed into our component or generated from inside our component, out to the `<ng-template>`
-for some additional control of how to render contents. We will explore multiple `<ng-template>`s and exposing some values to `<ng-template>`
+Also, it is possible to let `<ng-templates>` we put inside our component's tags, to get hold of certain values passed into our component or generated from inside our
+component for some additional control of how to render contents. We will explore multiple `<ng-template>`s and exposing some values to `<ng-template>`
 
 

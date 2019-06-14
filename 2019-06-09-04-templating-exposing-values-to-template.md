@@ -34,7 +34,7 @@ export class RepeaterComponent implements OnInit {
 
 The controller code is pretty straightforward. We declare an @Input for the items array. We declare @ContentChild for `itemTemplate` and `noItemsTemplate`
 so that the implementor can create custom markup for each item and for the case when there are no items. In the `ngOnInit`, we ensure that we have an
-items array in case they didn't set one.
+items array in case implementors didn't pass one in.
 
 The work for the controller code is now complete.
 
@@ -56,7 +56,7 @@ The work for the controller code is now complete.
 ```
 
 The code here contains many familiar directives and syntax, but may be put together in an unfamiliar manner. Let's start with the top-level. We wrap
-everything in a single div, as good practice. Immediately underneat the top-level div are two `<ng-container>`s, one for when there are items to render,
+everything in a single div, as good practice. Immediately underneath the top-level div are two `<ng-container>`s, one for when there are items to render,
 and the second for when there are no items to render. As a review, we know that an `<ng-container>` is an element-less component we can use and apply
 structural directives to so we don't end up having extra markup in the final render.
 
@@ -70,7 +70,7 @@ we also have `let i = index`. `index` is a value we have access to given by the 
 in its place for easier markup shortly.
 
 Inside the item div is our `<ng-container>` that specifies the `itemTemplate` in its `ngTemplateOutlet` directive. Now, we are going to want to expose
-an item of the array to the `<ng-template #itemTemplate>` up-front so that the implementor can display it in whatever markup needed. However, there is
+an item of the array to the `<ng-template #itemTemplate>` up-front so that the implementor can display it in whatever markup needed. There is
 the `context` object we will need to specify. The `context` object is a list of properties that will hold the values we will want to expose to the
 `<ng-template>` up-front, and we need to take note of those properties because we'll need to refer to them later.
 
@@ -106,7 +106,7 @@ since we have already discussed the basic value-less use of templating in the pr
 Let's now focus on `<ng-template #itemTemplate>`. In the `<ng-template>` tag, we use `let-` to declare a variable that we can access from inside
 that `<ng-template>`. The typical syntax is `let-variableNameWeWantUpFront`="variableNameExposedByNgTemplateOutlet". With `let-alternate="isAlternate"`,
 we are accessing the `isAlternate` property as exposed from inside our component's `*ngTemplateOutlet` declaration, and "renaming" it to "alternate"
-for use in our template. Notice that the `let-item` isn't set to a specific exposed property. This is because we *already know* that we specified
+for use in our `<ng-template>`. Notice that the `let-item` isn't set to a specific exposed property. This is because we *already know* that we specified
 a default/primary property via the `$implicit` property name back in `*ngTemplateOutlet`. We could've said `let-oneOfTheItems`, then `oneOfTheItems`
 would hold the value of whatever we set `$implicit` to at `*ngTemplateOutlet`.
 

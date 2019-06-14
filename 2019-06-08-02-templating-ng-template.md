@@ -29,7 +29,7 @@ instead want to display a message. We can pull this with the following markup:
 With the `<ng-template>`, we can write the following instead:
 
 ```html
-<div class="list" *ngIf="items.length > 0; else #noItems">
+<div class="list" *ngIf="items.length > 0; else noItems">
   <div *ngFor="let item of items">
   </div>
 </div>
@@ -37,8 +37,8 @@ With the `<ng-template>`, we can write the following instead:
   There are no items.
 </ng-template>
 ```
-First, we give the `<ng-template>` an identifier so we can reference it. Then, in the *ngIf* of our list, we can add `else #ngTemplateIdentifier` which in our
-case is `else #noItems`. This just says that we would display the template of that identifier when the condition in that *ngIf* is false. With the ng-template,
+First, we give the `<ng-template>` an identifier so we can reference it. Then, in the *ngIf* of our list, we can add `else ngTemplateIdentifier` which in our
+case is `else noItems`. This just says that we would display the template of that identifier when the condition in that *ngIf* is false. With the ng-template,
 there is no longer the need to supply another *ngIf* statement on another element that is the opposite condition of the other element's *ngIf*.
 
 This comes in really handy when we have several lists to display on the same component. All lists can use the same `#noItems` template if they have no contents.
