@@ -233,6 +233,16 @@ Here is the updated and refactored `loadTemplates()` function:
 
 Now, we have a component that handles all of the cases of combinations of ommitted and supplied templates!
 
+## Next Steps
+
+There is one little thing that needs to be done, and we'll leave it as an exercise - styling the default templates!
+
+At this point, we have reached a temporary end to some advanced templating features, and we will add more to this series as the needs arise.
+
+As an advice, though, when we create components and widgets, especially if they're meant to be bound to primitive data (such as a custom date or time
+picker), it's a good idea to implement templating, including layout templates. This way, we'll have our widgets' functionalities intact while implementors
+can easily make them physically look like the rest of their app!
+
 
 
 
