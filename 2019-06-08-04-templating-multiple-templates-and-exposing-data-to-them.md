@@ -186,13 +186,17 @@ If we run the app and try to click over and over again, we will notice that expa
 `isExpanded` state remains true no matter what.
 
 If we go back to `toggleExpanded()` and see what's happening with a `console.log()`, we will see that the value of `this.isExpanded` *does* toggle between
-clicks! *What* is going on? Why is the toggling values of `this.isExpanded` not reflected in the UI?
+true and false when clicked! *What* is going on? Why is the toggling values of `this.isExpanded` not reflected in the UI?
 
 It all has to do with the context of `this`. It is easy to believe, especially that if we have back-end OOP backgrounds, that the context of `this` of a
 function belonging to a class, will *always* be the instantiated object, even if we pass that function around our app. Though our component is truly a class
-in TypeScript, the context of *this* inside the class's functions *can change* to *no longer be* our component. We lose the context of *this* as our component
-when we pass our component's functions around *to be called* as *stand-alone* functions, as we're doing at the front-template. To "cure" this, we will need to
-rewrite our function `toggleExpanded()` *as a property* that is set equal to `*an arrow function*`:
+in TypeScript, the context of `this` inside the class's functions *can change* to *no longer be* our component. We lose the context of `this` as our 
+component when we pass it around as callbacks or set it equal to a property of another class or object. We created the property `toggleShowOrHide` *in* our
+*template context*, and set it to point to our component's original `toggleExpanded`. Now, though `toggleShowOrHide()` really points to our component's
+original `toggleExpanded`, the context of `this` when when we call `toggleShowOrHide()` is now the template context, and no longer the original component
+as we expect.
+
+To "cure" this, we will need to rewrite our function `toggleExpanded()` *as a property* that is set equal to `*an arrow function*`:
 
 ```javascript
 toggleExpanded = () => {
