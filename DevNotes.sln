@@ -325,10 +325,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templating", "Templating", 
 		2019-06-08-04-templating-exposing-data-and-functionality-to-templates.md = 2019-06-08-04-templating-exposing-data-and-functionality-to-templates.md
 		2019-06-08-05-templating-default-templates.md = 2019-06-08-05-templating-default-templates.md
 		2019-06-08-06-templating-layout-templates.md = 2019-06-08-06-templating-layout-templates.md
-		2019-06-09-07-templating-exposing-values-to-template.md = 2019-06-09-07-templating-exposing-values-to-template.md
-		2019-06-14-01-templating-beginning-layout-templates.md = 2019-06-14-01-templating-beginning-layout-templates.md
-		2019-06-14-02-templating-layout-templates.md = 2019-06-14-02-templating-layout-templates.md
-		2019-06-14-03-templating-fallback-templates.md = 2019-06-14-03-templating-fallback-templates.md
+		2019-06-20-01-templating-repeater-case-study.md = 2019-06-20-01-templating-repeater-case-study.md
 	EndProjectSection
 EndProject
 Global
