@@ -1,4 +1,4 @@
-# Angular Templating - Multiple Templates and Exposing Data To Them
+# Angular Templating - Exposing Data and Functionality to Templates
 
 We left off last article with discussing multiple templates that a component might expect. We are still working with the Panel component. At this time, it
 expects only one template, and that is the `#contentTemplate`. Suppose that we want the user to be able to customize the heading as well.
@@ -53,12 +53,10 @@ of `<ng-template #headingTemplate>` will be put in place where `<ng-container *n
     <ng-container
       *ngTemplateOutlet="headingTemplate">
     </ng-container>
-    <ng-container *ngIf="contentTemplate">
-      <div *ngIf="isExpanded">
-        <ng-container *ngTemplateOutlet="contentTemplate">
-        </ng-container>
-      </div>
-    </ng-container>
+    <div *ngIf="isExpanded">
+      <ng-container *ngTemplateOutlet="contentTemplate">
+      </ng-container>
+    </div>
   </div>
 ```
 
@@ -81,20 +79,17 @@ The **template context** *is* a regular JS object that we can specify in our com
     <ng-container
       *ngTemplateOutlet="headingTemplate; context: { headingText: heading, expanded: isExpanded }">
     </ng-container>
-    <ng-container *ngIf="contentTemplate">
-      <div *ngIf="isExpanded">
-        <ng-container *ngTemplateOutlet="contentTemplate">
-        </ng-container>
-      </div>
-    </ng-container>
+    <div *ngIf="isExpanded">
+      <ng-container *ngTemplateOutlet="contentTemplate">
+      </ng-container>
+    </div>
   </div>
 ```
 
 Let's focus on `<ng-container *ngTemplateOutlet="headingTemplate; context: { headingText: heading, expanded: isExpanded }">`. The first "parameter"
 of `*ngTemplateOutlet`, as we have seen before, is the identifier of the template whose contents we want to display it its (the `<ng-container>`'s) place.
-The second "parameter" is the template context object. It is important to know that we can put *any* property names we want (as long as it follows JS variable
-naming rules), and *however many* properties we need. Each of those properties, *by the property names* we decided here at the context, will be accessible
-to the front `<ng-template>` as we'll see shortly.
+The second "parameter" is the template context object. It is important to know that we can put *any* property names we want (as long as they follow JS variable
+naming rules), and *however many* properties we need. Each of those properties will be accessible to the front `<ng-template>` as we'll see shortly.
 
 In our case, our template context is a JS object with the properties `headingText`, which we'll assign the value of the component's `heading` @Input property,
 and `expanded` to be the component's `isExpanded` property's value. Now, let's see how we can access the context in the front template:
@@ -115,8 +110,9 @@ and `expanded` to be the component's `isExpanded` property's value. Now, let's s
 </ec-panel>
 ```
 
-`<ng-template>` lets us leverage the `let-xyz="contextPropertyName"` attribute. The `let-` portion is alwas `let-`. The xyz is going to be the variable
-name we'll to use within our `<ng-template>`, and `contextPropertyName` is the property by name from the context template we've declared from `*ngTemplateOutlet`.
+`<ng-template>` lets us leverage the `let-xyz="contextPropertyName"` attribute. The `let-` portion is always going to be `let-`. The xyz is going to be the
+variable name we'll use within our `<ng-template>`, which would be like an *alias* to `contextPropertyName` which is a property by name from the context 
+template we've declared from `*ngTemplateOutlet`.
 
 In our case, for our `<ng-template>`, `let-heading="headingText"` means we'll want to use the local variable `heading` to refer to the `headingText`
 property we've declared from `*ngTemplateOutlet*. We finally use `heading` to display its values with the familiar double-curly-braces expression 
@@ -128,8 +124,8 @@ or `^`.
 If we run the application now, we will see the customized heading *and also* the contents of the `#contentTemplate` because `isExpanded` *was* initialized
 to true by default.
 
-We're getting somewhere, but now, we still can't click on anything in the custom `#headingTemplate`. We will address how to let the front access a function
-from inside our component.
+We're getting somewhere, but now, we still can't click on anything in the custom `#headingTemplate` to toggle the visibility of the `#contentTemplate`. We will
+address how to let the front access a function from inside our component.
 
 ## Exposing Functions to Custom Templates
 
@@ -149,12 +145,10 @@ correct! Let's go ahead and add another property to the context in the `*ngTempl
     <ng-container
       *ngTemplateOutlet="headingTemplate; context: { headingText: heading, expanded: isExpanded, toggleShowOrHide: toggleExpanded }">
     </ng-container>
-    <ng-container *ngIf="contentTemplate">
-      <div *ngIf="isExpanded">
-        <ng-container *ngTemplateOutlet="contentTemplate">
-        </ng-container>
-      </div>
-    </ng-container>
+    <div *ngIf="isExpanded">
+      <ng-container *ngTemplateOutlet="contentTemplate">
+      </ng-container>
+    </div>
   </div>
 ```
 
@@ -178,9 +172,9 @@ how would we receive the function in the front `<ng-template>`?
 </ec-panel>
 ```
 
-To expose a function to the front template is done in a similar fashion as variables. We exposed the `toggleExpanded()` function as `toggleShowOrHide`
-in the template context, and we're going to use the context's `toggleShowOrHide` in the front template simply as `showOrHide`, and then finally hook it
-up to the `(click)` event of that `toggle-expand` `<span>` element with `(click)="showOrHide()"`.
+To expose a function to the front template is done in a similar fashion as with exposed variables. We exposed the `toggleExpanded()` function as 
+`toggleShowOrHide` in the template context, and we're going to use the context's `toggleShowOrHide` in the front template simply as `showOrHide`. We then
+finally hook it up to the `(click)` event of that `toggle-expand` `<span>` element with `(click)="showOrHide()"`.
 
 If we run the app and try to click over and over again, we will notice that expanding and contracting *did not visibly happen*. It seems like the component's
 `isExpanded` state remains true no matter what.
@@ -210,7 +204,7 @@ If we run the application again, we will see that clicking on the `toggle-expand
 
 ## Next Steps
 
-What if the implementor of our panel omits custom templates? The easy answer to that is that nothing will show. Should we, at our component's `ngOnInit()`
-detect that if an expected template doesn't exist, we should thrown an error? Or, do we supply a "backup" template and show that instead if they omit it
-up front? We will tackle these issues as we work with what we'll call "default templates"
+What if the implementor of our panel doesn't specify the `#headingTemplate` or the `#contentTemplate`? The easy answer to that is that the template they omit
+will just not show up on the screen. Should we, at our component's `ngOnInit()` detect that if an expected template doesn't exist, we should thrown an error? 
+Or, do we supply a "backup" template and show that instead if they omit it up front? We will tackle these issues as we work with what we'll call "default templates".
 
