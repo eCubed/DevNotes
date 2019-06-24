@@ -328,6 +328,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templating", "Templating", 
 		2019-06-08-99-templating-layout-templates.md = 2019-06-08-99-templating-layout-templates.md
 		2019-06-20-01-templating-repeater-case-study.md = 2019-06-20-01-templating-repeater-case-study.md
 		2019-06-23-01-templating-custom-layout-components.md = 2019-06-23-01-templating-custom-layout-components.md
+		2019-06-23-02-templating-custom-layout-inputs.md = 2019-06-23-02-templating-custom-layout-inputs.md
 	EndProjectSection
 EndProject
 Global
