@@ -1,18 +1,23 @@
 # Angular Templating - Passing Templates Via Input
 
 Before we head out to explore the capability of giving the implementor full control of the component's layout, we'll need to explore another way
-that templates get to our component. We are still going to work with our Panel Component. Right now, we would plop our Panel component's markup on
-a host component (statically), and explicitly specify templates between our component's markup tags. These templates are considered content children.
-Specifying template content children is suitable if we already know *at design time* what the exact template will be. There will be times, though,
-that when we plop our templated component on a host component, we wouldn't know right then and there *exactly* what the actual templates would be
-that would be used to render the content. There will come a time where if our host component where we plop our templated component's markup, would be
-dynamically instantiated, and we wanted that host component to be able to take in `TemplateRefs` to pass to our templated components. So, how would
-we pass unknown templates to our templated component? Certainly not through `<ng-template>` content children!
+that our components receive templates. Right now, we would plop our component's markup on a host component (statically), and explicitly specify templates 
+between our component's markup tags. As a review, these templates we provide between our component's markup tags are considered content children. We mark
+`TemplateRef`s with the `@ContentChild` decorator to let our component know to expect statically-placed `<ng-template>` tags inside our component's
+markup. 
+
+Specifying template content children is suitable if we already know *at design time* what the exact templates will be. There will be times, though, that
+we wouldn't know what templates to specify for our component's content children. What if there is some logic in the hosting component that would need to
+decide which templates to "feed" to our templated component? What if our host component *itself* were dynamically instantiated, and during its instantiation,
+we would specify from somewhere templates that we would need to pass to our templated component? We can certainly pass `TemplateRefs` around, however,
+we *cannot* receive unknown templates via content children. They're actually just like any object in JS.
+
+In this article, we will be continuing work on our Panel component.
 
 # @Input of Type TemplateRef
 Well just say this straight up - yes, we can pass template refs with `@Input`: `@Input('some-template') someTemplateFromInput: TemplateRef<any>;`.
-By convention, we would suffix `-FromInput` because we *also* want to retain the `@ContentChild` version of our template as we have it. So, for our
-case, we should add an `@Input()` for each of the heading and content templates:
+By convention, we would suffix `-FromInput` because we *also* want to retain the `@ContentChild` version of our template as we already have it. So, for
+our case, we should add an `@Input()` for each of the heading and content templates:
 
 ```javascript
 export class PanelComponent implements OnInit, OnDestroy {
@@ -30,8 +35,8 @@ export class PanelComponent implements OnInit, OnDestroy {
 }
 ```
 
-Notice that we used kebab-case because `@Input` means that our properties become our component's tag's attributes, which are in kebab-case. Note also
-that we did not specify `{ read: TemplateRef }` for the `@Input`, because it doesn't take that argument.
+Notice that we used kebab-case because `@Input` flags our component to go look for values in our component's tag's attributes, whose attribute naes are in
+kebab-case. Note also that we did not specify `{ read: TemplateRef }` for the `@Input`, because it doesn't take that argument.
 
 # Template Resolution between @ContentChild, @Input, and Default Template
 So far, our component *can* take in a template via `@Input` optionally. But right now, we don't know how our app decides which one to use if both
