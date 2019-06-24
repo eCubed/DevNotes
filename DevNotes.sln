@@ -324,8 +324,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templating", "Templating", 
 		2019-06-08-03-templating-accessing-external-templates-from-component.md = 2019-06-08-03-templating-accessing-external-templates-from-component.md
 		2019-06-08-04-templating-exposing-data-and-functionality-to-templates.md = 2019-06-08-04-templating-exposing-data-and-functionality-to-templates.md
 		2019-06-08-05-templating-default-templates.md = 2019-06-08-05-templating-default-templates.md
-		2019-06-08-06-templating-layout-templates.md = 2019-06-08-06-templating-layout-templates.md
+		2019-06-08-06-templating-passing-templates-via-input.md = 2019-06-08-06-templating-passing-templates-via-input.md
+		2019-06-08-99-templating-layout-templates.md = 2019-06-08-99-templating-layout-templates.md
 		2019-06-20-01-templating-repeater-case-study.md = 2019-06-20-01-templating-repeater-case-study.md
+		2019-06-23-01-templating-custom-layout-components.md = 2019-06-23-01-templating-custom-layout-components.md
 	EndProjectSection
 EndProject
 Global
