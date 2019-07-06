@@ -150,9 +150,9 @@ functions and values of our component:
 </ng-template>
 ```
 
-This way, when it's time to use our component elsewhere, we can merely copy-paste his markup snippet onto our apps, and make a few modifications. This saves us a lot of
-thinking and typing as utilizing template context values and functions is tedious and error-prone. The only things that we would need to modify is the template identifier,
-the markup, and where we'll want to place those `<ng-container>` placeholders.
+This way, when it's time to use our component elsewhere, we can merely copy-paste his markup snippet onto our apps and make a few modifications. This saves us a lot of
+thinking, remembering, and typing as utilizing template context values and functions is tedious and error-prone. The only things that we would need to modify is the
+template identifier, the markup, and where we'll want to place those `<ng-container>` placeholders.
 
 ## Providing Layout Templates
 
@@ -213,5 +213,14 @@ Now, via input:
 ```
 
 ## Afterthought
+
+So far, we have established a component whose look can be totally controlled by the implementor all the way upto the entire component's markup. There are a
+few things that we would want to do to further enhance our development of templated components.
+
+Whether we feed templates, technicall `TemplateRef`s into our component via `@Input` or `@ContentChild`, we *always* have to create those `<ng-templates>`
+*on the host component*. If we wanted to use our templated component in another component, we'd have to copy and paste the same `<ng-template>`s *to every
+host component* that we would like to put our templated component in. Could there be a way to gather templates into one repository-like component, and somehow
+that component's TemplateRefs?
+
 
 
