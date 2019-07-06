@@ -17,7 +17,7 @@ When we plop a Panel component in markup, we want to be able to specify somethin
     <div class="heading">
       <span class="heading-text">My Custom Heading</span>
       <span class="spacer"></span>
-      <span class="toggle-expand">X</span>
+      <span class="toggle-expand">v</span>
     </div>
   </ng-template>
 
@@ -28,18 +28,18 @@ When we plop a Panel component in markup, we want to be able to specify somethin
 ```
 
 It seems like the `#headingTemplate` is meant to display the heading text in a toolbar and it won't be clickable for toggling. There
-would be a small x-button on the right-hand side of the toolbar that is meant to be clicked for toggling the `isExpanded` state.
+would be a small v-button on the right-hand side of the toolbar that is meant to be clicked for toggling the `isExpanded` state.
 
 Since we introduced a new template, the `#headingTemplate`, we will need to make a few modifications to our component. First, we
-add a `@ContentChild` for the template the same way we have a `@ContentChild` for the `#contentTemplate`:
+add a `@ContentChild` for the `#headingTemplate` the same way we have a `@ContentChild` for the `#contentTemplate`:
 
 ```javascript
 export class PanelComponent implements OnInit, DoCheck, AfterContentInit, OnDestroy {
 
   @Input() heading: string;
 
-  @ContentChild('headingTemplate', { read: TemplateRef }) headingTemplate: TemplateRef<any>;
-  @ContentChild('contentTemplate', { read: TemplateRef }) contentTemplate: TemplateRef<any>;
+  @ContentChild('headingTemplate') headingTemplate: TemplateRef<any>;
+  @ContentChild('contentTemplate') contentTemplate: TemplateRef<any>;
   isExpanded = true;
   ...
 }
@@ -95,7 +95,7 @@ In our case, our template context is a JS object with the properties `headingTex
 and `expanded` to be the component's `isExpanded` property's value. Now, let's see how we can access the context in the front template:
 
 ```html
-<ec-panel heading="My Custom Heading">
+<lib-panel heading="My Custom Heading">
   <ng-template #headingTemplate let-heading="headingText" let-expandedState="expanded">
     <div class="heading">
       <span class="heading-text">{{ heading }}</span>
@@ -107,12 +107,12 @@ and `expanded` to be the component's `isExpanded` property's value. Now, let's s
   <ng-template #contentTemplate>
     Custom content
   </ng-template>
-</ec-panel>
+</lib-panel>
 ```
 
 `<ng-template>` lets us leverage the `let-xyz="contextPropertyName"` attribute. The `let-` portion is always going to be `let-`. The xyz is going to be the
-variable name we'll use within our `<ng-template>`, which would be like an *alias* to `contextPropertyName` which is a property by name from the context 
-template we've declared from `*ngTemplateOutlet`.
+variable name we'll use within our `<ng-template>`, which would be like an *alias* to `contextPropertyName` which is a property by name from the template 
+context we've declared from `*ngTemplateOutlet`.
 
 In our case, for our `<ng-template>`, `let-heading="headingText"` means we'll want to use the local variable `heading` to refer to the `headingText`
 property we've declared from `*ngTemplateOutlet*. We finally use `heading` to display its values with the familiar double-curly-braces expression 
@@ -157,7 +157,7 @@ toggleExpanded()`, which is wrong because `toggleExpanded` returns `void`, and w
 how would we receive the function in the front `<ng-template>`?
 
 ```html
-<ec-panel heading="My Custom Heading">
+<lib-panel heading="My Custom Heading">
   <ng-template #headingTemplate let-heading="headingText" let-expandedState="expanded" let-showOrHide="toggleShowOrHide">
     <div class="heading">
       <span class="heading-text">{{ heading }}</span>
@@ -169,7 +169,7 @@ how would we receive the function in the front `<ng-template>`?
   <ng-template #contentTemplate>
     Custom content
   </ng-template>
-</ec-panel>
+</lib-panel>
 ```
 
 To expose a function to the front template is done in a similar fashion as with exposed variables. We exposed the `toggleExpanded()` function as 

@@ -87,7 +87,7 @@ The first thing we'll need to do is to declare a @ContentChild for that ng-templ
 export class PanelComponent implements OnInit {
 
   @Input() heading: string;
-  @ContentChild('contentTemplate', {read: TemplateRef}) contentTemplate: TemplateRef<any>;
+  @ContentChild('contentTemplate') contentTemplate: TemplateRef<any>;
 
   constructor() { }
 
@@ -100,17 +100,15 @@ export class PanelComponent implements OnInit {
 
 That certain looks very verbose, but let's break it down:
 
-* The @ContentChild decorator indicates that our component would be looking for certain elements or components that may have been put between its tags on 
+* The `@ContentChild` decorator indicates that our component should be looking for certain elements or components that may have been put between its tags on 
 usage of our component.
-* The first parameter of @ContentChild *is* the identifier. In our case, it is the identifier `contentTemplate` of our `<ng-template>`
-* The second parameter is an object *always* with the property name `read`, with the value which is a class name. Since we want to recognize an `<ng-template>`,
-we want to specify `TemplateRef` for the value of `read`. It is possible to put other classes besides `TemplateRef`, but that's beyond the scope of this article.
+* The parameter of `@ContentChild` *is* the identifier. In our case, it is the identifier `contentTemplate` of our `<ng-template>`
 * We then of course, create the property of our component class, as we normally do. We name it *exactly* after the identifier by convention and for consistency. The
-data type should be `TemplateRef<any>` if we're expecting to work with an `<ng-template>`.
+data type should be `TemplateRef<any>` since we will be working with an `<ng-template>`.
 
 ## Placing the Contents of <ng-template> in the Component's Markup
 
-Now that we declared a @ContentChild in our .ts file for our component to recognize a template by an identifier, we may ask where in our component's markup do we
+Now that we declared a `@ContentChild` in our .ts file for our component to recognize a template by an identifier, we may ask where in our component's markup do we
 stick the contents of the `<ng-template>`, but more importantly, *how*? Let's tackle the *where* first since it's the easier one - we can put the contents of
 the `<ng-template>` *anywhere.* In our case, we would want them not in the `<h3>` (of course, that's for the heading), but inside the inner div.
 
@@ -141,7 +139,7 @@ and contracting:
 ```js
 export class PanelComponent implements OnInit {
 
-  @ContentChild('contentTemplate', {read: TemplateRef}) contentTemplate: TemplateRef<any>;
+  @ContentChild('contentTemplate') contentTemplate: TemplateRef<any>;
 
   isExpanded = true;
 
@@ -177,7 +175,7 @@ One question that arises is whether it is possible for a component to recognize 
 really apply to a simple panel component where we merely and always want to display the contents of the `<ng-template>`, but there are instances where we might
 want to show contents of one `<ng-template>` vs. another `<ng-template>`'s.
 
-Also, it is possible to let `<ng-templates>` we put inside our component's tags, to get hold of certain values passed into our component or generated from inside our
+Also, it is possible to let `<ng-templates>` we put inside our component's tags, to get hold of certain values from inside our
 component for some additional control of how to render contents. We will explore multiple `<ng-template>`s and exposing some values to `<ng-template>`
 
 

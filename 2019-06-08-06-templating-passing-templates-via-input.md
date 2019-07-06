@@ -1,22 +1,21 @@
 # Angular Templating - Passing Templates Via Input
 
-Before we head out to explore the capability of giving the implementor full control of the component's layout, we'll need to explore another way
-that our components receive templates. Right now, we would plop our component's markup on a host component (statically), and explicitly specify templates 
-between our component's markup tags. As a review, these templates we provide between our component's markup tags are considered content children. We mark
-`TemplateRef`s with the `@ContentChild` decorator to let our component know to expect statically-placed `<ng-template>` tags inside our component's
-markup. 
+We'll need to explore another way that our components receive templates. Right now, we would plop our component's markup on a host component (statically),
+and explicitly specify templates between our component's markup tags. As a review, these templates we provide between our component's markup tags are 
+considered content children. We mark `TemplateRef`s with the `@ContentChild` decorator to let our component know to expect statically-placed 
+`<ng-template>` tags inside our component's markup. 
 
 Specifying template content children is suitable if we already know *at design time* what the exact templates will be. There will be times, though, that
 we wouldn't know what templates to specify for our component's content children. What if there is some logic in the hosting component that would need to
 decide which templates to "feed" to our templated component? What if our host component *itself* were dynamically instantiated, and during its instantiation,
 we would specify from somewhere templates that we would need to pass to our templated component? We can certainly pass `TemplateRefs` around, however,
-we *cannot* receive unknown templates via content children. They're actually just like any object in JS.
+we *cannot* receive unknown templates via content children.
 
 In this article, we will be continuing work on our Panel component.
 
 # @Input of Type TemplateRef
-Well just say this straight up - yes, we can pass template refs with `@Input`: `@Input('some-template') someTemplateFromInput: TemplateRef<any>;`.
-By convention, we would suffix `-FromInput` because we *also* want to retain the `@ContentChild` version of our template as we already have it. So, for
+Well just say this straight up - yes, we can pass template refs with `@Input`: `@Input('some-template') someTemplateInput: TemplateRef<any>;`.
+By convention, we would suffix `-Input` because we *also* want to retain the `@ContentChild` version of our template. So, for
 our case, we should add an `@Input()` for each of the heading and content templates:
 
 ```javascript
@@ -24,19 +23,19 @@ export class PanelComponent implements OnInit, OnDestroy {
 
   @Input() heading: string;
 
-  @ContentChild('headingTemplate', { read: TemplateRef }) headingTemplate: TemplateRef<any>;
-  @Input('heading-template') headingTemplateFromInput: TemplateRef<any>;
-  @ViewChild('defaultHeadingTemplate', { read: TemplateRef }) defaultHeadingTemplate: TemplateRef<any>;
+  @ContentChild('headingTemplate') headingTemplate: TemplateRef<any>;
+  @Input('heading-template') headingTemplateInput: TemplateRef<any>;
+  @ViewChild('defaultHeadingTemplate') defaultHeadingTemplate: TemplateRef<any>;
 
-  @ContentChild('contentTemplate', { read: TemplateRef }) contentTemplate: TemplateRef<any>;
-  @Input('content-template') contentTemplateFromInput: TemplateRef<any>;
-  @ViewChild('defaultContentTemplate', { read: TemplateRef }) defaultContentTemplate: TemplateRef<any>;
+  @ContentChild('contentTemplate') contentTemplate: TemplateRef<any>;
+  @Input('content-template') contentTemplateInput: TemplateRef<any>;
+  @ViewChild('defaultContentTemplate') defaultContentTemplate: TemplateRef<any>;
   ...
 }
 ```
 
-Notice that we used kebab-case because `@Input` flags our component to go look for values in our component's tag's attributes, whose attribute naes are in
-kebab-case. Note also that we did not specify `{ read: TemplateRef }` for the `@Input`, because it doesn't take that argument.
+Notice that we used kebab-case because `@Input` flags our component to go look for values in our component's tag's attributes, whose attribute names are in
+kebab-case.
 
 # Template Resolution between @ContentChild, @Input, and Default Template
 So far, our component *can* take in a template via `@Input` optionally. But right now, we don't know how our app decides which one to use if both

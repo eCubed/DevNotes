@@ -20,8 +20,8 @@ We will now start thinking about what would happen if the implementor omits any 
 If went back to our component's usage and remove the templates, like this:
 
 ```html
-<ec-panel heading="My Custom Heading">
-</ec-panel>
+<lib-panel heading="My Custom Heading">
+</lib-panel>
 ```
 
 We would get an error. Why? Because we would be trying to display a template that doesn't exist, let alone try to give context to a template that
@@ -29,7 +29,7 @@ doesn't exist!
 
 So, what can we do? One possibility is to put `<ng-container *ngIf="expectedTemplate != null">` around `<ng-container *ngTemplateOutlet="expectedTemplate">`.
 This way, if the template wasn't specified, we simply don't show it. We would get no visual display for our component, which isn't a very good way
-to communicate to the implementor that they are may be something missing, let alone *what* may be missing. What we'll need to do is to instead
+to communicate to the implementor that they may be something missing, let alone *what* may be missing. What we'll need to do is to instead
 provide **default templates**, which would ultimately be shown in case an expected template may not have been supplied up front.
 
 ## Creating Default Templates
@@ -71,11 +71,11 @@ export class PanelComponent implements OnInit {
 
   @Input() heading: string;
 
-  @ContentChild('headingTemplate', { read: TemplateRef }) headingTemplate: TemplateRef<any>;
-  @ViewChild('defaultHeadingTemplate', { read: TemplateRef }) defaultHeadingTemplate: TemplateRef<any>;
+  @ContentChild('headingTemplate') headingTemplate: TemplateRef<any>;
+  @ViewChild('defaultHeadingTemplate') defaultHeadingTemplate: TemplateRef<any>;
 
-  @ContentChild('contentTemplate', { read: TemplateRef }) contentTemplate: TemplateRef<any>;
-  @ViewChild('defaultContentTemplate', { read: TemplateRef }) defaultContentTemplate: TemplateRef<any>;
+  @ContentChild('contentTemplate') contentTemplate: TemplateRef<any>;
+  @ViewChild('defaultContentTemplate') defaultContentTemplate: TemplateRef<any>;
 
   isExpanded = true;
   ...
@@ -85,7 +85,7 @@ export class PanelComponent implements OnInit {
 We declare a `@ViewChild` property for our default templates. Notice that the declaration is very similar to that of our expected templates
 with one key difference. Our expected templates are marked with `@ContentChild` which, as a review, tells our component to go look for the
 expected template up front - where the template *literally* is a *child* of our component's markup tag that contains *the content*. `@ViewChild`,
-on the other hand tells our component to go look for the template *in our component's markup*.
+on the other hand tells our component to go look for the template *in our component's own markup*.
 
 If we didn't declare a `@ViewChild` property for our default templates, we wouldn't be able to pass it to `*ngTemplateOutlet` since its first
 "parameter" *is* required to be a property of our component. Had our default templates been declared as `@ContentChild`, our component would be
@@ -93,9 +93,9 @@ looking for our default templates up front, which they wouldn't be, so that woul
 
 ## Creating Template Context From Code Instead
 
-If we look at the `*ngTemplateOutlet` declaration for the heading templates, it looks very long because of all of those values we would want
-to expose to our templates. We'll want to reduce that quite a bit, since more complicated templated components in later development would demand
-far more properties to expose to templates.
+If we look at the `*ngTemplateOutlet` declaration for the heading templates, it looks very long because of those values in the template context that we would
+want to expose to our templates. We'll want to reduce that quite a bit, since more complicated templated components in later development would demand far more 
+properties to expose to templates.
 
 We can go ahead and create a function in code that would simply return the heading template context:
 
@@ -117,19 +117,13 @@ This would declutter our markup. Now, it's more condensed:
  </ng-container>
 ```
 
-Remember that exposing our `this.toggleExpanded` function would still change the context of `this` when it's called via the context's `toggleShowOrHide`
-property!
-
-There is another reason why we may want to do create the context from code instead, and that's because we would also call upon that 
-`createTemplateContext` function from a different place in code other than from our component's markup.
-
 ## Default Template Considerations
 
 When we create default templates, we are making firm decisions on what *exactly* should be rendered if the implementor doesn't provide expected
 templates. We also made a firm decision not to throw errors if we detect a missing template from up front for our Panel Template. Notice that we
 specified specific CSS class names in our default templates, whose CSS styles would be declared from our component's .css or .scss files and would
 *always* have that look no matter what app we put it in. We could also make a decision to purposely make our default templates to look terrible
-without any styling at all to encourage implementors to supply a custom template.
+without any styling at all to encourage implementors to supply custom templates.
 
 One particular curious case is that of our default content template. Let us remember that the point of this panel is to surround any existing
 content with preset markup and a heading, which automatically means that the content template *should* probably be required that if omitted, we
@@ -139,6 +133,7 @@ message "Please specify your own content for this panel!".
 
 ## Next Steps
 
+// We will transfer this passage later.
 So far, our Panel coponent is very robust that it lets implementors define custom markup via templates, and also would show default templates
 should they decide not to or forgot to specify a template. There is one niggling issue, though. We surrounded everything with a `<div>` with
 the class name "panel" in our component's markup. No matter what the header markup and content end up being, they will both be placed one on

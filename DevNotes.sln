@@ -319,16 +319,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hosted Services", "Hosted S
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templating", "Templating", "{63126632-2D87-45D5-AA10-7843E98CA6A1}"
 	ProjectSection(SolutionItems) = preProject
+		-2019-06-20-01-templating-repeater-case-study.md = -2019-06-20-01-templating-repeater-case-study.md
+		-2019-06-23-01-templating-custom-layout-components.md = -2019-06-23-01-templating-custom-layout-components.md
+		-2019-06-23-02-templating-custom-layout-inputs.md = -2019-06-23-02-templating-custom-layout-inputs.md
 		2019-06-08-01-templating-primer.md = 2019-06-08-01-templating-primer.md
 		2019-06-08-02-templating-ng-template.md = 2019-06-08-02-templating-ng-template.md
 		2019-06-08-03-templating-accessing-external-templates-from-component.md = 2019-06-08-03-templating-accessing-external-templates-from-component.md
 		2019-06-08-04-templating-exposing-data-and-functionality-to-templates.md = 2019-06-08-04-templating-exposing-data-and-functionality-to-templates.md
 		2019-06-08-05-templating-default-templates.md = 2019-06-08-05-templating-default-templates.md
 		2019-06-08-06-templating-passing-templates-via-input.md = 2019-06-08-06-templating-passing-templates-via-input.md
-		2019-06-08-99-templating-layout-templates.md = 2019-06-08-99-templating-layout-templates.md
-		2019-06-20-01-templating-repeater-case-study.md = 2019-06-20-01-templating-repeater-case-study.md
-		2019-06-23-01-templating-custom-layout-components.md = 2019-06-23-01-templating-custom-layout-components.md
-		2019-06-23-02-templating-custom-layout-inputs.md = 2019-06-23-02-templating-custom-layout-inputs.md
+		2019-07-06-01-templating-layout-templates.md = 2019-07-06-01-templating-layout-templates.md
 	EndProjectSection
 EndProject
 Global
