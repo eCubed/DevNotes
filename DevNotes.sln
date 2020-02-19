@@ -332,6 +332,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templating", "Templating", 
 		2019-07-06-02-refactoring-layout-capability.md = 2019-07-06-02-refactoring-layout-capability.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Python", "Python", "{732EA3C3-15B0-41A5-AADA-114CE6424306}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{21CE049A-442C-43DD-B9F2-BDAE967CA1F7}"
+	ProjectSection(SolutionItems) = preProject
+		2018-02-18-01-intro.md = 2018-02-18-01-intro.md
+		2018-02-18-02-getting-started.md = 2018-02-18-02-getting-started.md
+		2018-02-18-03-programming-curiosities.md = 2018-02-18-03-programming-curiosities.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -368,6 +377,7 @@ Global
 		{69A90AC1-DBB8-45A0-A25B-186704F22FC4} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 		{C6421150-C0CA-4B4D-9CD4-09EA67856B1F} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 		{63126632-2D87-45D5-AA10-7843E98CA6A1} = {C5551210-F907-4F33-BD66-81C03BCEE244}
+		{21CE049A-442C-43DD-B9F2-BDAE967CA1F7} = {732EA3C3-15B0-41A5-AADA-114CE6424306}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}
