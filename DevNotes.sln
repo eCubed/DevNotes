@@ -339,6 +339,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Journal", "Journal", "{21CE
 		2018-02-18-01-intro.md = 2018-02-18-01-intro.md
 		2018-02-18-02-getting-started.md = 2018-02-18-02-getting-started.md
 		2018-02-18-03-programming-curiosities.md = 2018-02-18-03-programming-curiosities.md
+		2020-02-20-01-anaconda.md = 2020-02-20-01-anaconda.md
 	EndProjectSection
 EndProject
 Global
