@@ -15,7 +15,7 @@ Here's the db context:
     {
         public DbSet<MyThing> MyThings { get; set; }
 
-        public MyStuffDbContext() : base("MyStuff")
+        public MyStuffDbContext() : base("name=MyStuffConnectionString")
         {
         }
 
@@ -26,9 +26,8 @@ Here's the db context:
     }
 ```
 
-The constructor utilizes `base("MyStuff")`, which tells the system to go find the connection string in web.config with
-the name `MyStuff`. Note that the resulting database name once migrated will also be `MyStuff`, so we'll need to stick to this convention of
-naming our connection strings. In our library, we don't have a web.config, so we'll need to create an app that references our library.
+The constructor utilizes `base("name=MyStuffConnectionString")`, which tells the system to go find the connection string in web.config with
+the name `MyStuffConnectionString`. In our library, we don't have a web.config, so we'll need to create an app that references our library.
 
 ## Creation of the Migration App
 
@@ -43,22 +42,25 @@ Now, I'll need to add the connection string entry in web.config:
     <configuration>
     ...
         <connectionStrings>
-            <add name="MyStuff"
-              connectionString="Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MyStuffDotNet;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+            <add name="MyStuffConnectionString"
+              connectionString="Data Source=My-Machine\SQLEXPRESS;Initial Catalog=MyStuffDotNet;Integrated Security=True"
               providerName="System.Data.SqlClient"/>
         </connectionStrings>
     </configuration>
 ```
 
 Note that this web.config DOES make it to source control, and I'm exposing the connection string. This is dev, so it's alright. We'll just have to be
-careful when we actually need to deploy this. Unfortunately, Manage User Secrets is only available in Asp.NET Core apps, not in regular Asp.NET.
+careful when we actually need to deploy this. Unfortunately, Manage User Secrets is not available in .net Framework applications.
 
 I'm at the Package Manager Console now inside VS 2019. First, I'll need to select Default project to be my migration app. Also, I'll need to
-ensure that I'm at the root of my migration app at the PM prompt. I may have to `cd` to it if not already there.
+ensure that I'm at the root of my migration app at the PM prompt. I may have to `cd` to it if not already there. This is NOT obvious, but extremely important -
+the migration app NEEDS TO BE SET as the startup app of the solution when we run following commands!
 
 Now, I run `Enable-Migrations` because I'm about to perform migration for the first time. This creates a `Migrations` folder in the migration
 web app with a single fine `Configuration.cs` on it. I'm not going to touch this file at this point.
 
 I then run `Add-Migration InitMigration` where `InitMigration` is the name of my (what's going to be my first) migration attempt. This creates
 a time-stamped file name appened by the migration name (`InitMigration`) that I just specified.
+
+Finally, I'll run `Update-Database`. This should create the database if not already, and create all of the tables and their relationships as needed.
 

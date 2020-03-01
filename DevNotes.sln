@@ -13,6 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{4B5E87A2
 	ProjectSection(SolutionItems) = preProject
 		nuget-publishing-to-local-network-drive.md = nuget-publishing-to-local-network-drive.md
 		publishing-csharp-project.md = publishing-csharp-project.md
+		publishing-net-framework-libraries-as-nuget-packages.md = publishing-net-framework-libraries-as-nuget-packages.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Git", "Git", "{EDCD01F6-E0C6-4A3C-B3DA-6C5042B4BF7F}"
@@ -332,6 +333,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templating", "Templating", 
 		2019-07-06-02-refactoring-layout-capability.md = 2019-07-06-02-refactoring-layout-capability.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Asp.NET Framework", "Asp.NET Framework", "{471A1D87-A824-46B1-955D-64783C216ED3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF", "EF", "{2F74FB77-0E0D-4270-9778-62D11A2CB3E4}"
+	ProjectSection(SolutionItems) = preProject
+		ef-migrations.md = ef-migrations.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web API", "Web API", "{F46A85EE-0787-4CD8-B648-6BF3C25DA472}"
+	ProjectSection(SolutionItems) = preProject
+		web-api-from-scratch.md = web-api-from-scratch.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -368,6 +381,8 @@ Global
 		{69A90AC1-DBB8-45A0-A25B-186704F22FC4} = {C5551210-F907-4F33-BD66-81C03BCEE244}
 		{C6421150-C0CA-4B4D-9CD4-09EA67856B1F} = {AFA22DB1-DFAE-4319-BBDB-CFE8E5868D18}
 		{63126632-2D87-45D5-AA10-7843E98CA6A1} = {C5551210-F907-4F33-BD66-81C03BCEE244}
+		{2F74FB77-0E0D-4270-9778-62D11A2CB3E4} = {471A1D87-A824-46B1-955D-64783C216ED3}
+		{F46A85EE-0787-4CD8-B648-6BF3C25DA472} = {471A1D87-A824-46B1-955D-64783C216ED3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {247F1596-6427-4C8E-968F-4A60330DC887}

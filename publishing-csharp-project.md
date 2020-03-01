@@ -42,3 +42,5 @@ it as a dependency to any project.
 If a project previously referred to an older version of our NuGet package, the Manage NuGet Package screen will prompt us of
 any new versions of a currently referenced package. The Update tab will have a small number in a blue square, which indicates
 how many NuGet packages referenced has a newer version out. From here, we can update our packages.
+
+## Creating the .nuspec File.
