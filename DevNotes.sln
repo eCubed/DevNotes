@@ -345,6 +345,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web API", "Web API", "{F46A
 		web-api-from-scratch.md = web-api-from-scratch.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MongoDB", "MongoDB", "{C0EAA6F6-F561-4ADD-8250-B18B1A8FC576}"
+	ProjectSection(SolutionItems) = preProject
+		mongodb-01-intro.md = mongodb-01-intro.md
+		mongodb-02-atlas.md = mongodb-02-atlas.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
