@@ -356,6 +356,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SSR", "SSR", "{04D8B14B-24D
 		001-angular-ssr-quick-guide.md = 001-angular-ssr-quick-guide.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aesthetics", "Aesthetics", "{46549F95-5188-4269-A6EC-BE8B91078FEC}"
+	ProjectSection(SolutionItems) = preProject
+		001-Aesthetics-Primer.md = 001-Aesthetics-Primer.md
+		002-Aesthetics-Resources.md = 002-Aesthetics-Resources.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
