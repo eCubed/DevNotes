@@ -99,6 +99,9 @@ will live on our machine. It doesn't have to be https, since `https://jenkins.my
 request first. Later, when we install Jenkins, the installation will ask for the port number, which we'll specify `8082`. Note
 that we could have left it at `8080`, but that's already being used by IIS.
 
+Now, it's time to get IIS to receive MSBuild deployment, so we'll need to install Web Deploy. Detailed instructions are
+[here](https://docs.microsoft.com/en-us/iis/install/installing-publishing-technologies/installing-and-configuring-web-deploy-on-iis-80-or-later).
+
 ### Granting Administrator Full Access to Services
 
 The fact that there will be a local website `http://localhost:8082` that opens to Jenkins, Jenkins actually *actually* runs as

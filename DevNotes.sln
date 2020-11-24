@@ -366,7 +366,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Continuous Deployment", "Co
 	ProjectSection(SolutionItems) = preProject
 		000-CI-Primer.md = 000-CI-Primer.md
 		001-CI-Preparing-Remote-Server.md = 001-CI-Preparing-Remote-Server.md
-		002-CI-Deploying ASP.NET Core App.md = 002-CI-Deploying ASP.NET Core App.md
+		002-CI-Github and Jenkins Setup.md = 002-CI-Github and Jenkins Setup.md
+		003-CI-Deploying ASP.NET Core App.md = 003-CI-Deploying ASP.NET Core App.md
+		004-CI-Deploying Angular SSR Apps.md = 004-CI-Deploying Angular SSR Apps.md
 	EndProjectSection
 EndProject
 Global
